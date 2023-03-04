@@ -1,6 +1,7 @@
 import Head from 'next/head'
-import { Box, Heading, Link, Text } from '@chakra-ui/react'
+import { Box, Heading, Link, Text, VStack } from '@chakra-ui/react'
 import { SingleColumnLayout } from '@/components/SingleColumnLayout'
+import NextLink from 'next/link'
 
 export default function Home() {
 	return (
@@ -14,11 +15,6 @@ export default function Home() {
 				<SingleColumnLayout>
 					<Box>
 						<Heading>Hi, I am Sammy!</Heading>
-						<Text as="p" fontSize="24">
-							<Link href="https://github.com/sammydowds">Github</Link>,
-							<Link href="">Twitter</Link>,
-							<Link href="">LinkedIn</Link>
-						</Text>
 						<Text as="p" fontSize="18" marginTop="18">
 							I am a full-stack engineer who loves to learn and build new things. I started my career as a Mechanical Engineer after graduation from Oklahoma State University in 2016. My curiosity lead me to web dev (self-taught), and I have not looked back since.
 						</Text>
@@ -28,6 +24,18 @@ export default function Home() {
 						<Text as="p" fontSize="18" marginTop="18">
 							Outside of appreciating the beautiful mess of Frontend, I enjoy gaming, running, and watching sports (big NBA guy). My focus is becoming a better engineer, staying healthy, and maintaining a healthy balance in life.
 						</Text>
+						<VStack fontSize="24" alignItems="start" marginTop="26px">
+							<Heading as="h3">Links</Heading>
+							<Link as={NextLink} href="https://github.com/sammydowds" isExternal>
+								Github
+							</Link>,
+							<Link as={NextLink} href="https://twitter.com/d1993_sam" isExternal>
+								Tweeter
+							</Link>,
+							<Link as={NextLink} href="https://www.linkedin.com/in/sammy-dowds-521182b3/" isExternal>
+								LinkedIn
+							</Link>,
+						</VStack>
 					</Box>
 				</SingleColumnLayout>
 			</main>
