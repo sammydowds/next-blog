@@ -1,13 +1,13 @@
-import { Avatar, Box, Link } from '@chakra-ui/react'
-// import { Link } from '@chakra-ui/next-js'
+import { Avatar, Box, IconButton, Link, useColorMode } from '@chakra-ui/react'
+import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 
 export const Header = () => {
+	const { colorMode, toggleColorMode } = useColorMode()
 	return (
 		<Box
 			display="flex"
 			justifyContent="space-around"
 			alignItems="center"
-			borderBottom="1px solid"
 			position="sticky"
 			left="0"
 			top="0"
@@ -15,9 +15,10 @@ export const Header = () => {
 			backdropFilter="blur(10px)"
 		>
 			<Avatar name="Sammy" src="https://dowds.digital/assets/sammy-b8bb7304.png" />
-			<Box display="flex" gap="4">
+			<Box display="flex" gap="4" alignItems="center">
 				<Link href="/">About</Link>
 				<Link href="/notes">Notes</Link>
+				<IconButton aria-label={colorMode === 'light' ? "Switch to dark mode" : "Switch to light mode"} icon={colorMode === 'light' ? <BsFillMoonFill /> : <BsFillSunFill />} onClick={toggleColorMode} />
 			</Box>
 		</Box>
 	)
