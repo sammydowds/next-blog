@@ -4,12 +4,12 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>About Me</title>
-				<meta name="description" content="About me page" />
+				<title>Notes</title>
+				<meta name="description" content="Notes written" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Head>
 			<main>
-				About me page
+				Notes here
 			</main>
 		</>
 	)
