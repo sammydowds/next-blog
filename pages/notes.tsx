@@ -1,17 +1,11 @@
 import { SingleColumnLayout } from '@/components/SingleColumnLayout'
+import { NoteFrontMatter } from '../types'
 import { Box, Text, Heading, Link } from '@chakra-ui/react'
 import Head from 'next/head'
-import { getSortedNotesData } from '../lib/posts'
+import { getSortedNotesMetaData } from '../lib/posts'
 
-interface NotesPreview {
-	id: string
-	title: string
-	description: string
-	date: string
-	heroImage: string
-}
 interface Notes {
-	notes: NotesPreview[]
+	notes: NoteFrontMatter[]
 }
 export default function Notes({ notes }: Notes) {
 	return (
@@ -42,6 +36,6 @@ export default function Notes({ notes }: Notes) {
 }
 
 export async function getStaticProps() {
-	const sortedNotes = getSortedNotesData()
+	const sortedNotes = getSortedNotesMetaData()
 	return { props: { notes: sortedNotes } }
 }
