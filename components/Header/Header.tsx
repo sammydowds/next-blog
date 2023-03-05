@@ -1,6 +1,7 @@
-import { Box, IconButton, Link, useColorMode } from '@chakra-ui/react'
+import { Box, IconButton, useColorMode } from '@chakra-ui/react'
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 import NextImage from 'next/image'
+import Link from 'next/link'
 
 export const Header = () => {
 	const { colorMode, toggleColorMode } = useColorMode()
