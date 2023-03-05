@@ -1,9 +1,9 @@
 import { SingleColumnLayout } from '@/components/SingleColumnLayout'
 import { Note } from '../../types'
-import { Box, Text, Heading, Link } from '@chakra-ui/react'
 import Head from 'next/head'
 import { getNote, getNoteStaticPaths } from '../../lib/posts'
 import { GetStaticPropsContext } from 'next'
+import { MarkdownToJsx } from '../../components/MarkdownToJsx'
 
 interface NoteDetailProps {
   note: Note
@@ -19,8 +19,7 @@ export default function NoteDetail({ note }: NoteDetailProps) {
       </Head>
       <main>
         <SingleColumnLayout>
-          <Heading>{note.data.title}</Heading>
-          <Text>{note.content}</Text>
+          <MarkdownToJsx content={note.content} />
         </SingleColumnLayout>
       </main>
     </>
@@ -30,7 +29,7 @@ export default function NoteDetail({ note }: NoteDetailProps) {
 export async function getStaticPaths() {
   return {
     paths: getNoteStaticPaths(),
-    fallback: false, // can also be true or 'blocking'
+    fallback: false,
   }
 }
 
@@ -39,6 +38,5 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     return { props: { note: {} } }
   }
   const note = getNote(context?.params?.id)
-  console.log(note)
   return { props: { note } }
 }
