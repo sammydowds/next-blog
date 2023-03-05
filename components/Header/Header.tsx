@@ -1,5 +1,6 @@
-import { Avatar, Box, IconButton, Link, useColorMode } from '@chakra-ui/react'
+import { Box, IconButton, Link, useColorMode } from '@chakra-ui/react'
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
+import NextImage from 'next/image'
 
 export const Header = () => {
 	const { colorMode, toggleColorMode } = useColorMode()
@@ -14,7 +15,7 @@ export const Header = () => {
 			padding="10px"
 			backdropFilter="blur(10px)"
 		>
-			<Avatar name="Sammy" src="/sammy.png" />
+			<NextImage src="/sammy.png" alt="Sammy" height="40" width="40" style={{ borderRadius: "40px" }} />
 			<Box display="flex" gap="4" alignItems="center">
 				<Link href="/">About</Link>
 				<Link href="/notes">Notes</Link>
