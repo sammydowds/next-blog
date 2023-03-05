@@ -28,9 +28,9 @@ export const Code = ({
           }}
         >
           {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
+            <div key={line[0].content} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
+                <span key={line[0].content} {...getTokenProps({ token, key })} />
               ))}
             </div>
           ))}
