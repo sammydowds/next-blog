@@ -1,6 +1,13 @@
+import { SingleColumnLayout } from '@/components/SingleColumnLayout'
+import { NoteFrontMatter } from '../types'
+import { Box, Text, Heading, Link } from '@chakra-ui/react'
 import Head from 'next/head'
+import { getSortedNotesMetaData } from '../lib/posts'
 
-export default function Home() {
+interface Notes {
+	notes: NoteFrontMatter[]
+}
+export default function Notes({ notes }: Notes) {
 	return (
 		<>
 			<Head>
@@ -10,8 +17,25 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>
-				Notes here
+				<SingleColumnLayout>
+					{
+						notes.map((note) => {
+							return (
+								<Box key={note.id}>
+									<Heading>{note.title}</Heading>
+									<Text>{note.description}</Text>
+									<Link href={`/notes/${note.id}`}>Read More</Link>
+								</Box>
+							)
+						})
+					}
+				</SingleColumnLayout>
 			</main>
 		</>
 	)
+}
+
+export async function getStaticProps() {
+	const sortedNotes = getSortedNotesMetaData()
+	return { props: { notes: sortedNotes } }
 }
