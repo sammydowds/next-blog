@@ -1,7 +1,8 @@
 import { SingleColumnLayout } from '@/components/SingleColumnLayout'
 import { NoteFrontMatter } from '../types'
-import { Box, Text, Heading, Link, useColorMode } from '@chakra-ui/react'
+import { Box, Text, Heading, useColorMode } from '@chakra-ui/react'
 import Head from 'next/head'
+import Link from 'next/link'
 import { getSortedNotesMetaData } from '../lib/posts'
 
 interface Notes {
@@ -26,7 +27,7 @@ export default function Notes({ notes }: Notes) {
 									<Heading as="h2" fontSize="28px">{note.title}</Heading>
 									<Text fontSize="24px">{note.description}</Text>
 									<Box margin="14px 0px">
-										<Link color={colorMode === 'light' ? "blue.700" : "blue.300"} fontWeight="bold" fontSize="20px" href={`/notes/${note.id}`}>Read More</Link>
+										<Link style={{ fontWeight: "bold", fontSize: "20px", color: colorMode === 'light' ? "var(--chakra-colors-blue-500)" : "var(--chakra-colors-blue-300)" }} href={`/notes/${note.id}`}>Read More</Link>
 									</Box>
 								</Box>
 							)
