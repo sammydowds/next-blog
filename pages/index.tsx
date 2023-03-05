@@ -17,13 +17,13 @@ export default function Home() {
 					<Box>
 						<Heading>Hi, I am Sammy!</Heading>
 						<Text as="p" fontSize="18" marginTop="18">
-							I am a full-stack engineer who loves to learn and build new things. I started my career as a Mechanical Engineer after graduation from Oklahoma State University in 2016. My curiosity lead me to web dev (self-taught), and I have not looked back since.
+							As a full-stack engineer, I have a passion for building and learning new things. I began my career as a Mechanical Engineer, graduating from Oklahoma State University in 2016. My curiosity led me to the world of web development, which I taught myself, and I have been hooked ever since.
 						</Text>
 						<Text as="p" fontSize="18" marginTop="18">
-							Right now I am focused on frontend tech, but I also have an appreciation for the backend side of things (CRON, Django, Fastly, FastApi, etc). On the frontend, I have experience with Express, React, Redux, Node, Deno, and Next JS - typically all written in TypeScript.
+							While I currently focus on frontend technologies, I also possess a strong appreciation for backend aspects, including CRON, Django, Fastly, and FastApi, among others. My experience with frontend technologies includes Express, React, Redux, Node, Deno, and Next JS, with a preference for TypeScript.
 						</Text>
 						<Text as="p" fontSize="18" marginTop="18">
-							Outside of appreciating the beautiful mess of Frontend, I enjoy gaming, running, and watching sports (big NBA guy). My focus is becoming a better engineer, staying healthy, and maintaining a healthy balance in life.
+							Beyond my love for the beautiful chaos of frontend development, I enjoy hobbies such as gaming, running, and watching sports, particularly the NBA. My priorities are becoming a better engineer, maintaining my health, and achieving a healthy balance in my life.
 						</Text>
 						<VStack fontSize="24" alignItems="start" marginTop="26px">
 							<Heading as="h3">Links</Heading>
