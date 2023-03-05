@@ -14,7 +14,7 @@ export const Header = () => {
 			padding="10px"
 			backdropFilter="blur(10px)"
 		>
-			<Avatar name="Sammy" src="https://dowds.digital/assets/sammy-b8bb7304.png" />
+			<Avatar name="Sammy" src="/sammy.png" />
 			<Box display="flex" gap="4" alignItems="center">
 				<Link href="/">About</Link>
 				<Link href="/notes">Notes</Link>
