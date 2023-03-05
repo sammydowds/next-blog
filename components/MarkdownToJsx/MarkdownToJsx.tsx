@@ -1,6 +1,6 @@
 import Markdown from "markdown-to-jsx";
 import { Code } from "../Code";
-import { Heading, Text, Link, Img } from '@chakra-ui/react'
+import { Heading, Text, Link, Img, OrderedList, ListItem, UnorderedList } from '@chakra-ui/react'
 
 const config = {
   overrides: {
@@ -8,12 +8,15 @@ const config = {
       component: Heading,
       props: {
         as: "h1",
+        margin: "32px 0px"
       },
     },
     h2: {
       component: Heading,
       props: {
         as: "h2",
+        margin: "24px 0px",
+        fontSize: "28px"
       },
     },
     h3: {
@@ -53,6 +56,14 @@ const config = {
         objectFit: "cover"
       }
     },
+    ol: OrderedList,
+    li: {
+      component: ListItem,
+      props: {
+        marginLeft: "10px"
+      },
+    },
+    ul: UnorderedList
   },
 };
 
