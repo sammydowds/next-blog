@@ -46,7 +46,12 @@ const config = {
     code: {
       component: Code,
     },
-    a: Link,
+    a: {
+      component: Link,
+      props: {
+        color: '#0000EE'
+      }
+    },
     img: {
       component: Img,
       props: {
