@@ -40,7 +40,7 @@ On vacation, I read and started reading a few books.
 
 I read [The Chaos Machine by Max Fisher](https://www.amazon.com/Chaos-Machine-Inside-Social-Rewired/dp/031670332X). It highlights the history and potential issues of algorithms driving platforms. I found it to be a solid read. 
 
-After reading that, I started on [The Delusions of Crowds by William J. Bernstein](https://www.amazon.com/Delusions-Crowds-Why-People-Groups/dp/0802157092). I would say its good so far, but at times can be a bit too in depth on the history of things. I would classify it as a _good_ book so far though. 
+After reading that, I started on [The Delusions of Crowds by William J. Bernstein](https://www.amazon.com/Delusions-Crowds-Why-People-Groups/dp/0802157092). I would say its good so far, but at times can be a bit too in depth on the history of things.
 
 ## Learning
 
