@@ -49,7 +49,8 @@ const config = {
     a: {
       component: Link,
       props: {
-        color: '#0000EE'
+        color: '#0000EE',
+        isExternal: true
       }
     },
     img: {
