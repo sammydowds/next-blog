@@ -4,6 +4,8 @@ import Head from 'next/head'
 import { getNote, getNoteStaticPaths } from '../../lib/posts'
 import { GetStaticPropsContext } from 'next'
 import { MarkdownToJsx } from '../../components/MarkdownToJsx'
+import { Box } from '@chakra-ui/react'
+import { Inquiry } from '@/components/Inquiry'
 
 interface NoteDetailProps {
   note: Note
@@ -20,8 +22,18 @@ export default function NoteDetail({ note }: NoteDetailProps) {
       <main>
         <SingleColumnLayout>
           <MarkdownToJsx content={note.content} />
+          <Box position="fixed" bottom="20px" right="20px">
+            <Inquiry
+              modalTitle='Let me know what you think'
+              ctaText='Send'
+              buttonText='Thoughts?'
+              secondaryCtaText='Close'
+            />
+          </Box>
         </SingleColumnLayout>
+
       </main>
+
     </>
   )
 }
