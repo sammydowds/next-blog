@@ -1,6 +1,7 @@
 import Markdown from "markdown-to-jsx";
 import { Code } from "../Code";
-import { Heading, Text, Link, Img, OrderedList, ListItem, UnorderedList } from '@chakra-ui/react'
+import { Heading, Text, Img, OrderedList, ListItem, UnorderedList } from '@chakra-ui/react'
+import { Link } from '@/components/Link'
 
 const config = {
   overrides: {
@@ -46,13 +47,7 @@ const config = {
     code: {
       component: Code,
     },
-    a: {
-      component: Link,
-      props: {
-        color: '#0000EE',
-        isExternal: true
-      }
-    },
+    a: Link,
     img: {
       component: Img,
       props: {
@@ -74,5 +69,5 @@ const config = {
 };
 
 export const MarkdownToJsx = ({ content }: { content: string }) => {
-  return <Markdown options={config}>{content}</Markdown>;
+  return <Markdown options={config} style={{ marginBottom: "75px" }}>{content}</Markdown>;
 };

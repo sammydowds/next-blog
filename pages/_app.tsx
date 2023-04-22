@@ -3,8 +3,14 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { Header } from '../components/Header'
 import theme from '../theme'
 import { Analytics } from '@vercel/analytics/react'
+import { useEffect } from 'react'
 
 export default function App({ Component, pageProps }: AppProps) {
+
+	useEffect(() => {
+		localStorage.setItem('chakra-ui-color-mode', 'light')
+	})
+
 	return (
 		<ChakraProvider theme={theme}>
 			<Header />
