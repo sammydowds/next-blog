@@ -62,8 +62,8 @@ export const Inquiry = ({ modalTitle, buttonText, ctaText }: InquiryProps) => {
             {error && (
               <Alert status='error'>
                 <AlertIcon />
-                <AlertTitle>Message Failed to Send</AlertTitle>
-                <AlertDescription>Oops, something went wrong.</AlertDescription>
+                <AlertTitle>Failed to send</AlertTitle>
+                <AlertDescription>Oops!</AlertDescription>
               </Alert>
             )}
           </ModalBody>
