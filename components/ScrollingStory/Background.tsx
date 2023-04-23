@@ -9,7 +9,7 @@ interface MilestoneProps {
 const Milestone = ({ year, text, delay }: MilestoneProps) => {
   return (
     <Fade delay={delay} in={true}>
-      <HStack align="start" fontSize="20px">
+      <HStack align="start" fontSize="14px">
         <Text fontWeight="bold">{year}</Text>
         <Text>{text}</Text>
       </HStack>

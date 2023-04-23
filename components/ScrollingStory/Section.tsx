@@ -21,9 +21,7 @@ export const Section = ({ children, height, intersectionProps, onInViewChange }:
 
   return (
     <VStack justify="center" h={height} ref={ref} mx="20px">
-      <Fade in={entry?.isIntersecting} transition={{ enter: { duration: 0.5 } }}>
-        {children}
-      </Fade>
+      {children}
     </VStack>
   )
 }
