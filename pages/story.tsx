@@ -1,26 +1,39 @@
 import Head from 'next/head'
-import { CardSlideFade } from '@/components/ScrollingStory'
+import { Background, Intro, Career, ContactMe } from '@/components/ScrollingStory'
 import { useState } from 'react'
-import { HStack, Text } from '@chakra-ui/react'
+import { Box, HStack, Text, VStack } from '@chakra-ui/react'
+import { BsMailbox } from 'react-icons/bs'
+import { AiOutlineMail } from 'react-icons/ai'
+import { TfiHandPointRight } from 'react-icons/tfi'
 
 
 export default function Story() {
-  const [onIntro, setOnIntro] = useState(true)
-  const [onEarlyLife, setOnEarlyLife] = useState(false)
-  const [onCareer, setOnCareer] = useState(false)
-  const [onContact, setOnContact] = useState(false)
+  const [index, setIndex] = useState(1)
+
+  const onIntro = index >= 1
+  const onBackground = index >= 2
+  const onCareer = index >= 3
+  const onContact = index >= 4
 
   const handleOnIntro = (inView: boolean) => {
-    setOnIntro(inView)
+    if (inView) {
+      setIndex(1)
+    }
   }
-  const handleOnEarlyLife = (inView: boolean) => {
-    setOnEarlyLife(inView)
+  const handleOnBackground = (inView: boolean) => {
+    if (inView) {
+      setIndex(2)
+    }
   }
   const handleOnCareer = (inView: boolean) => {
-    setOnCareer(inView)
+    if (inView) {
+      setIndex(3)
+    }
   }
   const handleOnContact = (inView: boolean) => {
-    setOnContact(inView)
+    if (inView) {
+      setIndex(4)
+    }
   }
 
   return (
@@ -32,59 +45,90 @@ export default function Story() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <HStack position="fixed" top="20px" left="20px">
-          <Text
-            fontWeight="bold"
-            color={onIntro ? "black" : "gray"}
-            textDecoration={onIntro ? "underline" : ""}>
-            Intro
-          </Text>
-          <Text
-            fontWeight="bold"
-            color={onEarlyLife ? "black" : "gray"}
-            textDecoration={onEarlyLife ? "underline" : ""}>
-            Early Life
-          </Text>
-          <Text
-            fontWeight="bold"
-            color={onCareer ? "black" : "gray"}
-            textDecoration={onCareer ? "underline" : ""}>
-            Career
-          </Text>
-          <Text
-            fontWeight="bold"
-            color={onContact ? "black" : "gray"}
-            textDecoration={onContact ? "underline" : ""}>
-            Contact Me
-          </Text>
-        </HStack>
-        <CardSlideFade
-          height="100vh"
-          prompt="Hi. I am Sammy."
-          intersectionProps={{ rootMargin: "-50%" }}
-          offset="-400px"
+        <VStack
+          position="fixed"
+          top="20px"
+          left="20px"
+          backgroundColor="white"
+          padding="10px"
+          borderRadius="10px"
+          zIndex="2"
+          border="1px solid black"
+        >
+          <HStack>
+            <Text
+              fontWeight="bold"
+              color={onIntro ? "black" : "gray"}
+            >
+              Intro
+            </Text>
+            <Text
+              fontWeight="bold"
+              color={onBackground ? "black" : "gray"}
+            >
+              Background
+            </Text>
+            <Text
+              fontWeight="bold"
+              color={onCareer ? "black" : "gray"}
+            >
+              Career
+            </Text>
+            <Text
+              fontWeight="bold"
+              color={onContact ? "black" : "gray"}
+            >
+              Contact Me
+            </Text>
+          </HStack>
+          <HStack w="100%" m="0">
+            {
+              index <= 3 ? (
+                <>
+                  <Box w="90%">
+                    <Box position="relative" left={`${(index - 1) * 30}%`}>
+                      <AiOutlineMail />
+                    </Box>
+                  </Box>
+                  <Box>
+                    <BsMailbox />
+                  </Box>
+                </>
+              ) : (
+                <>
+                  <Box w="90%">
+                    <Box position="relative" left={`${(index - 1) * 30}%`}>
+                      <TfiHandPointRight />
+                    </Box>
+                  </Box>
+                  <Box>
+                    <BsMailbox />
+                  </Box>
+                </>
+              )
+            }
+          </HStack>
+        </VStack>
+
+        <Intro
           onInViewChange={handleOnIntro}
-        />
-        <CardSlideFade
           height="100vh"
-          prompt="I was born in Oklahoma City, OK. Well, more of Edmond to be specific."
           intersectionProps={{ rootMargin: "-50%" }}
-          offset="400px"
-          onInViewChange={handleOnEarlyLife}
         />
-        <CardSlideFade
+        <Background
+          onInViewChange={handleOnBackground}
           height="100vh"
-          prompt="My Career"
           intersectionProps={{ rootMargin: "-50%" }}
-          offset="-400px"
+        />
+        <Career
           onInViewChange={handleOnCareer}
-        />
-        <CardSlideFade
           height="100vh"
-          prompt="Contact me"
           intersectionProps={{ rootMargin: "-50%" }}
-          offset="-400px"
+        />
+        <ContactMe
           onInViewChange={handleOnContact}
+          height="100vh"
+          intersectionProps={{ rootMargin: "-50%" }}
         />
       </main>
     </>
