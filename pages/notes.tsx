@@ -5,6 +5,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getSortedNotesMetaData } from '../lib/posts'
 import { useNextLinkStyle } from '@/components/Link/hooks/useNextLinkStyle'
+import { Header } from '@/components/Header'
 
 interface Notes {
 	notes: NoteFrontMatter[]
@@ -21,6 +22,7 @@ export default function Notes({ notes }: Notes) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>
+				<Header />
 				<SingleColumnLayout>
 					<VStack gap="20px">
 						{
