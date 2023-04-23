@@ -8,7 +8,7 @@ export const Career = (sectionProps: Omit<SectionProps, 'children'>) => {
         <Heading>Career</Heading>
         <Text fontSize="20px">
           I currently work as a Fullstack Engineer.
-          My path to writing code started in college when we they taught us Computational Methods with Python.
+          My path to writing code started in college when they taught us Computational Methods with Python.
         </Text>
         <Text fontSize="20px">
           <Highlight query={["learn", "build"]} styles={{ px: '1', py: '1', bg: 'yellow.100' }}>
