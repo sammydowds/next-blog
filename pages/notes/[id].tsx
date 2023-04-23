@@ -6,6 +6,7 @@ import { GetStaticPropsContext } from 'next'
 import { MarkdownToJsx } from '../../components/MarkdownToJsx'
 import { Box } from '@chakra-ui/react'
 import { Inquiry } from '@/components/Inquiry'
+import { Header } from '@/components/Header'
 
 interface NoteDetailProps {
   note: Note
@@ -20,6 +21,7 @@ export default function NoteDetail({ note }: NoteDetailProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Header />
         <SingleColumnLayout>
           <MarkdownToJsx content={note.content} />
           <Box position="fixed" bottom="20px" right="20px">
@@ -31,7 +33,6 @@ export default function NoteDetail({ note }: NoteDetailProps) {
             />
           </Box>
         </SingleColumnLayout>
-
       </main>
 
     </>
