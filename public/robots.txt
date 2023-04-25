@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sd3.dev
+
+# Sitemaps
+Sitemap: https://sd3.dev/sitemap.xml
