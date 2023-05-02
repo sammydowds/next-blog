@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { TbBrandTelegram } from 'react-icons/tb'
 import { useInquiry } from './hooks/useInquiry'
+import va from '@vercel/analytics'
 
 interface InquiryProps {
   modalTitle: string
@@ -37,9 +38,14 @@ export const Inquiry = ({ modalTitle, buttonText, ctaText }: InquiryProps) => {
     submitInquiry(router.asPath, name, inquiry)
   }
 
+  const handleOpenModal = () => {
+    va.track("Opened inquiry modal")
+    onOpen()
+  }
+
   return (
     <>
-      <Button onClick={onOpen} borderRadius="0" height="60px" fontSize="20px" leftIcon={<TbBrandTelegram />}>{buttonText}</Button>
+      <Button onClick={handleOpenModal} borderRadius="0" height="60px" fontSize="20px" leftIcon={<TbBrandTelegram />}>{buttonText}</Button>
       <Modal isOpen={isOpen} onClose={handleOnClose}>
         <ModalOverlay />
         <ModalContent borderRadius="0" mx="5px">
