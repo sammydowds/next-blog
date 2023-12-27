@@ -26,9 +26,6 @@ export default function Home() {
 							<Box pt="30px" alignSelf="end">
 								<Inquiry buttonText="Drop me a message" ctaText='Send' modalTitle='Lets get in touch' secondaryCtaText='Close' />
 							</Box>
-							<Box alignSelf="end">
-								<Link href="/story">Or learn more about me</Link>
-							</Box>
 						</VStack>
 						<Projects />
 						<VStack fontSize="24" alignItems="start" marginTop="26px">
