@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://sd3.dev
+Host: https://www.sd3.dev
 
 # Sitemaps
-Sitemap: https://sd3.dev/sitemap.xml
+Sitemap: https://www.sd3.dev/sitemap.xml
