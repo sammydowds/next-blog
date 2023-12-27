@@ -37,7 +37,7 @@ I have been somewhat of a "pure" fullstack. I primarily focused on frontend when
 
 I had projects ranging from queue consumers, new tables, new API endpoints to re-usable React components, redux state, feature development, and accessiblity improvements.
 
-Some things I intend on improving before my next job includes advanced typescript concepts, system architecture and common patterns, and perhaps looking playing around with new languages and frameworks for the backend and frontend. 
+Some things I intend on improving before my next job include: advanced typescript concepts, system architecture, common patterns, and playing around with new languages and frameworks for the backend and frontend. 
 
 ## Conclusion
 
