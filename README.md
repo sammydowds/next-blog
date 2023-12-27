@@ -7,3 +7,4 @@ This blog is intended to serve as a playground for myself, a place to capture no
 This blog is built with Next JS. Features include: 
 - Ability to write a markdown file, and it immediately becomes a blog post (deployed automatically)
 - Sitemap automatically generated with `postbuild`
+- Ability to message me (please do), bring me some leads 
