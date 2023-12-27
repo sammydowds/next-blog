@@ -1,6 +1,6 @@
 ---
 title: "Laid off"
-description: "I was laid off. A full dynamic stack engineer on the hunt for new opportunites."
+description: "I was laid off. A dynamic full stack engineer on the hunt for new opportunites."
 date: "12/27/2023"
 labels: "personal"
 ---
