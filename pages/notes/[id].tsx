@@ -16,7 +16,7 @@ export default function NoteDetail({ note }: NoteDetailProps) {
     <>
       <Head>
         <title>{note.data.title}</title>
-        <meta name="description" content="Notes written" />
+        <meta name="description" content={note.data.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
