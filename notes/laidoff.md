@@ -41,5 +41,5 @@ Some things I intend on improving before my next job include: advanced typescrip
 
 ## Conclusion
 
-Looking forward to 2024 and new opportunities!
+Build your own narrative. Looking forward to 2024 and new opportunities!
 
