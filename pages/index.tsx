@@ -12,7 +12,7 @@ export default function Home() {
 				<title>About Me</title>
 				<meta name="description" content="About me page" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="icon" href="/favicon.ico" />
+				<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>" />
 			</Head>
 			<main>
 				<Header />
@@ -25,9 +25,6 @@ export default function Home() {
 							</Text>
 							<Box pt="30px" alignSelf="end">
 								<Inquiry buttonText="Drop me a message" ctaText='Send' modalTitle='Lets get in touch' secondaryCtaText='Close' />
-							</Box>
-							<Box alignSelf="end">
-								<Link href="/story">Or learn more about me</Link>
 							</Box>
 						</VStack>
 						<Projects />

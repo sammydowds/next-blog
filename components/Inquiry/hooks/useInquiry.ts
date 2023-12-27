@@ -5,7 +5,7 @@ export const useInquiry = () => {
   const [error, setError] = useState<any>()
   const [loading, setLoading] = useState(false)
 
-  const submitInquiry = (route?: string, name?: string, inquiry?: string) => {
+  const submitInquiry = (route?: string, name?: string, email?: string, inquiry?: string) => {
 
     if (!inquiry || !name || !route) {
       return
@@ -17,7 +17,7 @@ export const useInquiry = () => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ route, name, inquiry })
+      body: JSON.stringify({ route, name, email, inquiry })
     }
     fetch('/api/message', options)
       .then((response) => {
