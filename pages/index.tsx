@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 import { SingleColumnLayout } from '@/components/SingleColumnLayout'
-import { Link } from '@/components/Link'
 import { Inquiry } from '@/components/Inquiry'
 import { Header } from '@/components/Header'
 import { Projects } from '@/components/Projects'
@@ -28,15 +27,6 @@ export default function Home() {
 							</Box>
 						</VStack>
 						<Projects />
-						<VStack fontSize="24" alignItems="start" marginTop="26px">
-							<Heading as="h3">Links</Heading>
-							<Link href="https://github.com/sammydowds">
-								Github
-							</Link>,
-							<Link href="https://www.linkedin.com/in/sammy-dowds-521182b3/">
-								LinkedIn
-							</Link>,
-						</VStack>
 					</Box>
 				</SingleColumnLayout>
 			</main>
