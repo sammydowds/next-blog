@@ -1,10 +1,9 @@
-Blog
+## Sammy Dowds Blog
 
-This is my blog written with Next JS 
+### Intent
+This blog is intended to serve as a playground for myself, a place to capture notes on what I am working on, and serve as an intro to who I am and what I am about. 
 
-## TODO
-- Import Notes Preview 
-- Import Notes MD 
-- Import Notes Detail Components
-- Create Notes Page
-- Create Note Details Page
+### Tech Summary
+This blog is built with Next JS. Features include: 
+- Ability to write a markdown file, and it immediately becomes a blog post (deployed automatically)
+- Sitemap automatically generated with `postbuild`
