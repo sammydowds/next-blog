@@ -17,6 +17,7 @@ export const Inquiry = ({ modalTitle, buttonText, ctaText }: InquiryProps) => {
   const { submitInquiry, loading, error, data, setData, setError } = useInquiry()
   const [inquiry, setInquiry] = useState()
   const [name, setName] = useState()
+  const [email, setEmail] = useState()
 
   const handleOnClose = () => {
     setData(null)
@@ -34,8 +35,13 @@ export const Inquiry = ({ modalTitle, buttonText, ctaText }: InquiryProps) => {
     setName(inputValue)
   }
 
+  const handleEmailChange = (e: any) => {
+    let inputValue = e.target.value
+    setEmail(inputValue)
+  }
+
   const handleClick = () => {
-    submitInquiry(router.asPath, name, inquiry)
+    submitInquiry(router.asPath, name, email, inquiry)
   }
 
   const handleOpenModal = () => {
@@ -55,6 +61,7 @@ export const Inquiry = ({ modalTitle, buttonText, ctaText }: InquiryProps) => {
             {!data && !error && (
               <VStack gap="5px">
                 <Input placeholder="Name" borderRadius="0" onChange={handleNameInputChange} />
+                <Input placeholder="Email" type="email" borderRadius="0" onChange={handleEmailChange} />
                 <Textarea placeholder="Message..." height="200px" borderRadius="0" onChange={handleMessageInputChange} />
               </VStack>
             )}
@@ -74,7 +81,7 @@ export const Inquiry = ({ modalTitle, buttonText, ctaText }: InquiryProps) => {
             )}
           </ModalBody>
           <ModalFooter>
-            {!data && !error && <Button isDisabled={!name || !inquiry} variant='ghost' mr={3} onClick={handleClick} leftIcon={<TbBrandTelegram />} isLoading={loading}>
+            {!data && !error && <Button isDisabled={!name || !inquiry || !email} variant='ghost' mr={3} onClick={handleClick} leftIcon={<TbBrandTelegram />} isLoading={loading}>
               {ctaText}
             </Button>
             }

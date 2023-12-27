@@ -4,6 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 type SheetForm = {
   inquiry: string
   name: string
+  email: string
   route: string
 }
 
@@ -19,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
         await doc.loadInfo()
         const sheet = doc.sheetsByIndex[0];
-        await sheet.addRow([body.route, body.name, body.inquiry])
+        await sheet.addRow([body.route, body.name, body.inquiry, body.email])
         return res.status(200).json({ data: { message: "Thank you for sending your message!" } })
       } catch (e: any) {
         return res.status(500).send({ message: e.message })
