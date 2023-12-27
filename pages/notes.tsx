@@ -29,7 +29,10 @@ export default function Notes({ notes }: NotesParams) {
 							notes.map((note) => {
 								return (
 									<Box key={note.id} w="100%">
-										<Heading as="h2" fontSize="28px">{note.title}</Heading>
+										<Box>
+											<Heading as="h2" fontSize="28px">{note.title}</Heading>
+											<Text fontSize="12px">{note.date}</Text>
+										</Box>
 										<Text fontSize="24px">{note.description}</Text>
 										<Box margin="14px 0px">
 											<Link style={{ ...linkStyle }} href={`/notes/${note.id}`}>Read More</Link>
