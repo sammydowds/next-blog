@@ -2,6 +2,8 @@ import { Box, HStack } from '@chakra-ui/react'
 import NextImage from 'next/image'
 import { useRouter } from 'next/router'
 import { MenuLink } from '../MenuLink'
+import { SiGithub, SiLinkedin } from "react-icons/si";
+import Link from 'next/link';
 
 export const Header = () => {
 	const router = useRouter()
@@ -30,6 +32,12 @@ export const Header = () => {
 							All notes
 						</MenuLink>
 					)}
+					<Link href="https://github.com/sammydowds">
+						<SiGithub color="#333" style={{ height: "30px", width: "30px" }} />
+					</Link>
+					<Link href="https://www.linkedin.com/in/sammy-d-521182b3/">
+						<SiLinkedin color="#0077b5" style={{ height: "30px", width: "30px" }} />
+					</Link>
 				</Box>
 			</HStack>
 		</Box>
