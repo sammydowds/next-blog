@@ -1,4 +1,4 @@
-import { Heading, SimpleGrid, Tag, VStack, Text, Tooltip, Mark } from "@chakra-ui/react"
+import { Heading, SimpleGrid, VStack, Tooltip } from "@chakra-ui/react"
 import { ProjectCard } from "./ProjectCard"
 import { FaAws } from "react-icons/fa";
 import { SiTypescript, SiMarkdown, SiVite, SiVercel, SiNextdotjs } from "react-icons/si";
@@ -77,25 +77,25 @@ export const Projects = () => {
         <ProjectCard
           heading="SEC Scraping"
           summary="I built a platform to scrape SEC data and visualize it using Next JS."
-          pieces={[<NextJsTag />, <TypeScriptTag />, <PythonTag />]}
+          pieces={[<NextJsTag key="next-sec-scraping" />, <TypeScriptTag key="ts-sec-scraping" />, <PythonTag key="p-sec-scraping" />]}
           date="08/20/23"
         />
         <ProjectCard
           heading="Business Plans"
           summary="I created a platform to write business plans! Create, edit, update business plans with the help of AI."
-          pieces={[<VercelTag />, <TypeScriptTag />, <ViteTag />, <NodeTag />, <MarkdownTag />]}
+          pieces={[<VercelTag key="vercel-bp" />, <TypeScriptTag key="ts-bp" />, <ViteTag key="vite-bp" />, <NodeTag key="node-bp" />, <MarkdownTag key="md-bp" />]}
           date="07/20/23"
         />
         <ProjectCard
           heading="Generated Business Plans"
           summary="An app which generates a business plan daily via ChatGPT. I hope it inspires new small businesses."
-          pieces={[<AwsTag />, <NextJsTag />, <TypeScriptTag />]}
+          pieces={[<AwsTag key="aws-gbp" />, <NextJsTag key="nextjs-gbp" />, <TypeScriptTag key="ts-gbp" />]}
           date="04/12/23"
         />
         <ProjectCard
           heading="This Blog!"
           summary="I built this blog to help others, challenge myself, and iterate on feature ideas."
-          pieces={[<NextJsTag />, <TypeScriptTag />, <MarkdownTag />]}
+          pieces={[<NextJsTag key="nextjs-blog" />, <TypeScriptTag key="ts-blog" />, <MarkdownTag key="md-ts" />]}
           date="01/20/23"
         />
       </SimpleGrid>
