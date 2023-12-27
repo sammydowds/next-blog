@@ -34,7 +34,6 @@ export default function NoteDetail({ note }: NoteDetailProps) {
           </Box>
         </SingleColumnLayout>
       </main>
-
     </>
   )
 }

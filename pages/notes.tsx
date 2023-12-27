@@ -7,10 +7,10 @@ import { getSortedNotesMetaData } from '../lib/posts'
 import { useNextLinkStyle } from '@/components/Link/hooks/useNextLinkStyle'
 import { Header } from '@/components/Header'
 
-interface Notes {
+interface NotesParams {
 	notes: NoteFrontMatter[]
 }
-export default function Notes({ notes }: Notes) {
+export default function Notes({ notes }: NotesParams) {
 	const linkStyle = useNextLinkStyle()
 
 	return (

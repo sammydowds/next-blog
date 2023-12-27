@@ -1,4 +1,4 @@
-import { Card, CardHeader, Button, CardBody, CardFooter, Heading, StackDivider, Text, Stack, Box, VStack } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, Heading, Text, Box, VStack } from '@chakra-ui/react'
 import { Link } from '../Link'
 
 interface ProjectCardProps {
