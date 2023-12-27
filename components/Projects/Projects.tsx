@@ -1,20 +1,105 @@
-import { Heading, VStack } from "@chakra-ui/react"
+import { Heading, SimpleGrid, VStack, Tooltip } from "@chakra-ui/react"
 import { ProjectCard } from "./ProjectCard"
+import { FaAws } from "react-icons/fa";
+import { SiTypescript, SiMarkdown, SiVite, SiVercel, SiNextdotjs } from "react-icons/si";
+import { TbBrandPython } from "react-icons/tb";
+import { FaNode } from "react-icons/fa";
+import { ReactNode } from "react";
+
+interface IconProps {
+  label: string
+  icon: ReactNode
+}
+const Icon = ({ label, icon }: IconProps) => {
+  return (
+    <Tooltip label={label} hasArrow>
+      <span>
+        {icon}
+      </span>
+    </Tooltip>
+  )
+}
+
+const PythonTag = () => {
+  return (
+    <Icon label="Python" icon={<TbBrandPython color="gray" />} />
+  )
+}
+
+const TypeScriptTag = () => {
+  return (
+    <Icon label="TypeScript" icon={<SiTypescript color="gray" />} />
+  )
+}
+
+const VercelTag = () => {
+  return (
+    <Icon label="Vercel" icon={<SiVercel color="gray" />} />
+  )
+}
+
+const ViteTag = () => {
+  return (
+    <Icon label="Vite" icon={<SiVite color="gray" />} />
+  )
+}
+
+const MarkdownTag = () => {
+  return (
+    <Icon label="Markdown" icon={<SiMarkdown color="gray" />} />
+  )
+}
+
+const AwsTag = () => {
+  return (
+    <Icon label="AWS" icon={<FaAws color="gray" />} />
+  )
+}
+
+const NodeTag = () => {
+  return (
+    <Icon label="Node" icon={<FaNode color="gray" />} />
+  )
+}
+
+const NextJsTag = () => {
+  return (
+    <Icon label="Next JS" icon={<SiNextdotjs color="gray" />} />
+  )
+}
+
 
 export const Projects = () => {
   return (
     <VStack my="40px" gap="20px">
       <Heading alignSelf="start">Recent Projects</Heading>
-      <ProjectCard
-        heading="ChatGPT Daily Business Plan"
-        summary="An app which generates a business plan daily via ChatGPT. I hope it inspires new small businesses. Stack: AWS Lambda, S3, Next JS"
-        href="https://www.dailybusinessplan.app/"
-      />
-      <ProjectCard
-        heading="This Blog!"
-        summary="I built this blog to help others, challenge myself, and iterate on feature ideas."
-        href="https://www.sd3.dev/"
-      />
+      <SimpleGrid w="100%" spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
+        <ProjectCard
+          heading="SEC Scraping"
+          summary="I built a platform to scrape SEC data and visualize it using Next JS."
+          pieces={[<NextJsTag key="next-sec-scraping" />, <TypeScriptTag key="ts-sec-scraping" />, <PythonTag key="p-sec-scraping" />]}
+          date="08/20/23"
+        />
+        <ProjectCard
+          heading="Business Plans"
+          summary="I created a platform to write business plans! Create, edit, update business plans with the help of AI."
+          pieces={[<VercelTag key="vercel-bp" />, <TypeScriptTag key="ts-bp" />, <ViteTag key="vite-bp" />, <NodeTag key="node-bp" />, <MarkdownTag key="md-bp" />]}
+          date="07/20/23"
+        />
+        <ProjectCard
+          heading="Generated Business Plans"
+          summary="An app which generates a business plan daily via ChatGPT. I hope it inspires new small businesses."
+          pieces={[<AwsTag key="aws-gbp" />, <NextJsTag key="nextjs-gbp" />, <TypeScriptTag key="ts-gbp" />]}
+          date="04/12/23"
+        />
+        <ProjectCard
+          heading="This Blog!"
+          summary="I built this blog to help others, challenge myself, and iterate on feature ideas."
+          pieces={[<NextJsTag key="nextjs-blog" />, <TypeScriptTag key="ts-blog" />, <MarkdownTag key="md-ts" />]}
+          date="01/20/23"
+        />
+      </SimpleGrid>
+
     </VStack>
   )
 }

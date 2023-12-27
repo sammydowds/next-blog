@@ -1,25 +1,38 @@
-import { Card, CardHeader, CardBody, Heading, Text, Box, VStack } from '@chakra-ui/react'
-import { Link } from '../Link'
+import { Card, CardHeader, CardBody, Heading, Text, VStack, CardFooter, Flex } from '@chakra-ui/react'
+import { ReactNode } from 'react';
+
 
 interface ProjectCardProps {
   heading: string
   summary: string
-  href: string
+  date: string
+  pieces: ReactNode[]
 }
-export const ProjectCard = ({ heading, summary, href }: ProjectCardProps) => {
+export const ProjectCard = ({ heading, summary, pieces, date }: ProjectCardProps) => {
   return (
-    <Card variant="outline" w="100%">
+    <Card w={{ small: "225px", large: "225px" }}>
       <CardHeader>
-        <Heading size='md'>{heading}</Heading>
+        <Flex w="100%" justify="space-between">
+          <Heading size='sm'>{heading}</Heading>
+          <Text whiteSpace="nowrap" fontSize="8px">{date}</Text>
+        </Flex>
       </CardHeader>
-      <CardBody>
+      <CardBody py="5px">
         <VStack>
-          <Text w="100%">{summary}</Text>
-          <Box alignSelf="end">
-            <Link href={href}>View</Link>
-          </Box>
+          <Text fontSize="12px" w="100%">{summary}</Text>
         </VStack>
       </CardBody>
+      <CardFooter>
+        <Flex direction="column" gap="2px" w="100%">
+          <Flex w="100%" gap="3px" justifyContent="end">
+            {
+              pieces.map(piece => {
+                return piece
+              })
+            }
+          </Flex>
+        </Flex>
+      </CardFooter>
     </Card>
   )
 }
