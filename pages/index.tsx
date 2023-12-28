@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Box, Heading, Text, VStack } from '@chakra-ui/react'
+import { Box, Heading, Link, Text, VStack } from '@chakra-ui/react'
 import { SingleColumnLayout } from '@/components/SingleColumnLayout'
 import { Inquiry } from '@/components/Inquiry'
 import { Header } from '@/components/Header'
@@ -17,10 +17,22 @@ export default function Home() {
 				<Header />
 				<SingleColumnLayout>
 					<Box>
-						<VStack align="start">
+						<VStack align="start" gap="10px">
 							<Heading>Hi, I am Sammy!</Heading>
-							<Text fontSize="24px">
-								I like building things on the web. I am a mechanical engineer turned fullstack engineer.
+							<Text fontSize="16px">
+								I an experienced full stack engineer working on evenly both sides of the stack.
+							</Text>
+							<Text fontSize="16px">
+								Most recently, I worked for <Link color="blue.500" href="https://www.zumper.com" isExternal>Zumper</Link> (real estate startup, ~30 engineers) shipping new features, pages, SEO improvements, workers, consumers, tables, and APIs.
+							</Text>
+							<Text fontSize="16px">
+								I have worked with a range of languages, frameworks, and databases.
+								I am currently looking for my next challenge. Want to chat?
+								Message me below, or on LinkedIn, or at{" "}
+								<Link color="blue.500" href="mailto:sammycdowds@gmail.com">
+									sammycdowds@gmail.com
+								</Link>
+								.
 							</Text>
 							<Box pt="30px" alignSelf="end">
 								<Inquiry buttonText="Drop me a message" ctaText='Send' modalTitle='Lets get in touch' secondaryCtaText='Close' />
