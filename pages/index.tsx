@@ -20,7 +20,7 @@ export default function Home() {
 						<VStack align="start" gap="10px">
 							<Heading>Hi, I am Sammy!</Heading>
 							<Text fontSize="16px">
-								I an experienced full stack engineer working on evenly both sides of the stack.
+								I an experienced full stack engineer working evenly on both sides of the stack.
 							</Text>
 							<Text fontSize="16px">
 								Most recently, I worked for <Link color="blue.500" href="https://www.zumper.com" isExternal>Zumper</Link> (real estate startup, ~30 engineers) shipping new features, pages, SEO improvements, workers, consumers, tables, and APIs.
