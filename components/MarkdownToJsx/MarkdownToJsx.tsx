@@ -9,40 +9,47 @@ const config = {
       component: Heading,
       props: {
         as: "h1",
-        margin: "32px 0px"
+        fontSize: "24px",
+        margin: "30px 0px 18px 0px"
       },
     },
     h2: {
       component: Heading,
       props: {
         as: "h2",
-        margin: "24px 0px",
-        fontSize: "28px"
+        fontSize: "20px",
+        margin: "25px 0px 14px 0px"
       },
     },
     h3: {
       component: Heading,
       props: {
         as: "h3",
-        margin: "20px 0px",
-        fontSize: "24px"
+        fontSize: "16px",
+        margin: "20px 0px 12px 0px"
       },
     },
     h4: {
       component: Heading,
       props: {
         as: "h4",
+        fontSize: "16px",
+        margin: "18px 0px 10px 0px"
       },
     },
     p: {
       component: Text,
       props: {
-        css: { margin: "20px 0px" },
-      },
+        fontSize: "16px",
+        margin: "4px 0px 16px 0px"
+      }
     },
     div: {
       component: Text,
-      css: { margin: "20px 0px" },
+      props: {
+        fontSize: "16px",
+        margin: "4px 0px 16px 0px"
+      }
     },
     code: {
       component: Code,
@@ -57,14 +64,24 @@ const config = {
         objectFit: "cover"
       }
     },
-    ol: OrderedList,
+    ol: {
+      component: OrderedList,
+      props: {
+        margin: "0px 0px 8px 10px"
+      },
+    },
     li: {
       component: ListItem,
       props: {
         marginLeft: "10px"
       },
     },
-    ul: UnorderedList
+    ul: {
+      component: UnorderedList,
+      props: {
+        margin: "0px 0px 8px 10px"
+      },
+    }
   },
 };
 

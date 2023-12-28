@@ -24,6 +24,9 @@ export default function NoteDetail({ note }: NoteDetailProps) {
       <main>
         <Header />
         <SingleColumnLayout>
+          <Box fontSize="10px" justifySelf="end">
+            written {note.data.date}
+          </Box>
           <MarkdownToJsx content={note.content} />
           <Box position="fixed" bottom="20px" right="20px">
             <Inquiry

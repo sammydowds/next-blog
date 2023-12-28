@@ -30,12 +30,12 @@ export default function Notes({ notes }: NotesParams) {
 								return (
 									<Box key={note.id} w="100%">
 										<Box>
-											<Heading as="h2" fontSize="28px">{note.title}</Heading>
+											<Heading as="h2" fontSize="18px">{note.title}</Heading>
 											<Text fontSize="12px">{note.date}</Text>
 										</Box>
-										<Text fontSize="24px">{note.description}</Text>
-										<Box margin="14px 0px">
-											<Link style={{ ...linkStyle }} href={`/notes/${note.id}`}>Read More</Link>
+										<Text fontSize="14px">{note.description}</Text>
+										<Box>
+											<Link style={{ ...linkStyle }} href={`/notes/${note.id}`}>Read</Link>
 										</Box>
 									</Box>
 								)
