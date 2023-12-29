@@ -1,5 +1,5 @@
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
-import dracula from "prism-react-renderer/themes/dracula";
+import vsDark from "prism-react-renderer/themes/vsDark";
 
 export const Code = ({
   className,
@@ -14,7 +14,7 @@ export const Code = ({
       {...defaultProps}
       code={children}
       language={language as Language}
-      theme={dracula}
+      theme={vsDark}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre

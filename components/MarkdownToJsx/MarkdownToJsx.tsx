@@ -1,6 +1,6 @@
 import Markdown from "markdown-to-jsx";
 import { Code } from "../Code";
-import { Heading, Text, Img, OrderedList, ListItem, UnorderedList } from '@chakra-ui/react'
+import { Heading, Text, Img, OrderedList, ListItem, UnorderedList, Table, Thead, Tbody, Tfoot, Tr, Th, Td } from '@chakra-ui/react'
 import { Link } from '@/components/Link'
 
 const config = {
@@ -81,6 +81,31 @@ const config = {
       props: {
         margin: "0px 0px 8px 10px"
       },
+    },
+    // table
+    table: {
+      component: Table,
+      props: {
+        variant: "striped"
+      }
+    },
+    thead: {
+      component: Thead
+    },
+    tbody: {
+      component: Tbody
+    },
+    tfoot: {
+      component: Tfoot
+    },
+    tr: {
+      component: Tr
+    },
+    th: {
+      component: Th
+    },
+    td: {
+      component: Td
     }
   },
 };
