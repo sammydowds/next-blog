@@ -1,7 +1,7 @@
 ---
 title: "Different Font Size Units"
 description: "A brief overview of the font size units used on the web."
-date: "12/27/2023"
+date: "12/29/2023"
 labels: "personal"
 ---
 
