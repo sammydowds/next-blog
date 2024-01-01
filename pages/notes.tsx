@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { getSortedNotesMetaData } from '../lib/posts'
 import { useNextLinkStyle } from '@/components/Link/hooks/useNextLinkStyle'
 import { Header } from '@/components/Header'
+import { GithubLinkButton } from '@/components/GithubLinkButton'
 
 interface NotesParams {
 	notes: NoteFrontMatter[]
@@ -29,14 +30,13 @@ export default function Notes({ notes }: NotesParams) {
 							notes.map((note) => {
 								return (
 									<Box key={note.id} w="100%">
-										<Box>
-											<Heading as="h2" fontSize="18px">{note.title}</Heading>
-											<Text fontSize="12px">{note.date}</Text>
-										</Box>
-										<Text fontSize="14px">{note.description}</Text>
-										<Box>
-											<Link style={{ ...linkStyle }} href={`/notes/${note.id}`}>Read</Link>
-										</Box>
+										<GithubLinkButton href={`/notes/${note.id}`} p="10px">
+											<Box>
+												<Heading as="h2" fontSize="18px">{note.title}</Heading>
+												<Text fontSize="12px">{note.date}</Text>
+											</Box>
+											<Text fontSize="14px">{note.description}</Text>
+										</GithubLinkButton>
 									</Box>
 								)
 							})
