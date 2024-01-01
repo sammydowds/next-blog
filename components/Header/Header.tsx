@@ -1,9 +1,9 @@
 import { Box, HStack } from '@chakra-ui/react'
 import NextImage from 'next/image'
 import { useRouter } from 'next/router'
-import { MenuLink } from '../MenuLink'
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import Link from 'next/link';
+import { GithubLinkButton } from '../GithubLinkButton';
 
 export const Header = () => {
 	const router = useRouter()
@@ -24,13 +24,13 @@ export const Header = () => {
 				<Box display="flex" gap="4" alignItems="center">
 					{!isViewingNote ? (
 						<>
-							<MenuLink to="/" >About</MenuLink>
-							<MenuLink to="/notes">Notes</MenuLink>
+							<GithubLinkButton href="/">About</GithubLinkButton>
+							<GithubLinkButton href="/notes">Notes</GithubLinkButton>
 						</>) : (
-						<MenuLink to="/notes" forceSelected>
+						<GithubLinkButton href="/notes" forceSelected>
 							&larr;
 							All notes
-						</MenuLink>
+						</GithubLinkButton>
 					)}
 					<Link href="https://github.com/sammydowds">
 						<SiGithub color="#333" style={{ height: "30px", width: "30px" }} />
