@@ -1,4 +1,4 @@
-import { Box, BoxProps, Flex } from "@chakra-ui/react"
+import { Box, BoxProps } from "@chakra-ui/react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { CSSProperties, ReactNode } from "react"

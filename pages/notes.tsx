@@ -2,9 +2,7 @@ import { SingleColumnLayout } from '@/components/SingleColumnLayout'
 import { NoteFrontMatter } from '../types'
 import { Box, Text, Heading, VStack } from '@chakra-ui/react'
 import Head from 'next/head'
-import Link from 'next/link'
 import { getSortedNotesMetaData } from '../lib/posts'
-import { useNextLinkStyle } from '@/components/Link/hooks/useNextLinkStyle'
 import { Header } from '@/components/Header'
 import { GithubLinkButton } from '@/components/GithubLinkButton'
 
@@ -12,8 +10,6 @@ interface NotesParams {
 	notes: NoteFrontMatter[]
 }
 export default function Notes({ notes }: NotesParams) {
-	const linkStyle = useNextLinkStyle()
-
 	return (
 		<>
 			<Head>
