@@ -24,11 +24,11 @@ export const GithubLinkButton = ({ href, children, forceSelected, ...props }: Gi
       }
     >
       <Box
-        borderRadius="2px"
-        px="5px"
-        py="2px"
+        borderRadius="6px"
+        px="8px"
+        py="4px"
         _hover={{ backgroundColor: 'rgba(220, 220, 220, 0.5)' }}
-        fontSize="16px"
+        fontSize="14px"
         {...props}
       >
         {children}

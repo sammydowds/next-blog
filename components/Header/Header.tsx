@@ -1,4 +1,4 @@
-import { Box, HStack } from '@chakra-ui/react'
+import { Box, Flex, HStack } from '@chakra-ui/react'
 import NextImage from 'next/image'
 import { useRouter } from 'next/router'
 import { SiGithub, SiLinkedin } from "react-icons/si";
@@ -20,8 +20,8 @@ export const Header = () => {
 			backdropFilter="blur(10px)"
 		>
 			<HStack maxW="500px" w="100%" justify="space-between">
-				<NextImage src="/sammy.png" alt="Sammy" height="40" width="40" style={{ borderRadius: "40px" }} />
-				<Box display="flex" gap="4" alignItems="center">
+				<Flex alignItems="center" gap="4px">
+					<NextImage src="/sammy.png" alt="Sammy" height="40" width="40" style={{ borderRadius: "40px" }} />
 					{!isViewingNote ? (
 						<>
 							<GithubLinkButton href="/">About</GithubLinkButton>
@@ -32,6 +32,9 @@ export const Header = () => {
 							All notes
 						</GithubLinkButton>
 					)}
+				</Flex>
+				<Box display="flex" gap="8px" alignItems="center">
+
 					<Link href="https://github.com/sammydowds">
 						<SiGithub color="#333" style={{ height: "30px", width: "30px" }} />
 					</Link>
