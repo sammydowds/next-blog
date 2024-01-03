@@ -92,14 +92,9 @@ A label for edges, might look like **within** (regions), **born_in**, **lives_in
 
 #### Triple store
 
-All information is stored in a form very simple three-part statements: 
-- Subject
-- Predicate
-- Object
+All information is stored in a form very simple three-part statements: _subject_, _predicate_, and _object_. 
 
-For example: Jim, likes, apples.
-
-A _subject_ of a triple is equivalent to a vertex in a graph.
+A _subject_ of a triple is equivalent to a vertex in a graph. For example: _Jim_, likes, apples.
 
 The object is one of two things:
 1. A value - "{ _predicate_:_object_ }", ie { age: 33 }

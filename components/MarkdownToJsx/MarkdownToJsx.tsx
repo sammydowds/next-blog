@@ -40,15 +40,15 @@ const config = {
     p: {
       component: Text,
       props: {
-        fontSize: "14px",
-        margin: "6px 0px 6px 0px"
+        fontSize: "16px",
+        margin: "12px 0px 12px 0px"
       }
     },
     div: {
       component: Text,
       props: {
-        fontSize: "14px",
-        margin: "6px 0px 6px 0px"
+        fontSize: "16px",
+        margin: "12px 0px 12px 0px"
       }
     },
     code: {
@@ -57,7 +57,7 @@ const config = {
     a: {
       component: Link,
       props: {
-        style: { fontSize: "14px", textDecoration: "underline", color: 'blue' }
+        style: { fontSize: "16px", textDecoration: "underline", color: 'blue' }
       }
     },
     img: {
@@ -79,7 +79,7 @@ const config = {
       component: ListItem,
       props: {
         marginLeft: "10px",
-        fontSize: "14px"
+        fontSize: "16px"
       },
     },
     ul: {
