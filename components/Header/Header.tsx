@@ -19,7 +19,7 @@ export const Header = () => {
 			padding="20px"
 			backdropFilter="blur(10px)"
 		>
-			<HStack maxW="700px" w="100%" justify="space-between">
+			<HStack maxW="500px" w="100%" justify="space-between">
 				<NextImage src="/sammy.png" alt="Sammy" height="40" width="40" style={{ borderRadius: "40px" }} />
 				<Box display="flex" gap="4" alignItems="center">
 					{!isViewingNote ? (

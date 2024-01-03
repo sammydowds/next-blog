@@ -9,24 +9,24 @@ const config = {
       component: Heading,
       props: {
         as: "h1",
-        fontSize: "24px",
-        margin: "30px 0px 18px 0px"
+        fontSize: "26px",
+        margin: "24px 0px 18px 0px"
       },
     },
     h2: {
       component: Heading,
       props: {
         as: "h2",
-        fontSize: "20px",
-        margin: "25px 0px 14px 0px"
+        fontSize: "22px",
+        margin: "20px 0px 16px 0px"
       },
     },
     h3: {
       component: Heading,
       props: {
         as: "h3",
-        fontSize: "16px",
-        margin: "20px 0px 12px 0px"
+        fontSize: "20px",
+        margin: "18px 0px 12px 0px"
       },
     },
     h4: {
@@ -34,27 +34,32 @@ const config = {
       props: {
         as: "h4",
         fontSize: "16px",
-        margin: "18px 0px 10px 0px"
+        margin: "10px 0px 10px 0px"
       },
     },
     p: {
       component: Text,
       props: {
-        fontSize: "16px",
-        margin: "4px 0px 16px 0px"
+        fontSize: "14px",
+        margin: "6px 0px 6px 0px"
       }
     },
     div: {
       component: Text,
       props: {
-        fontSize: "16px",
-        margin: "4px 0px 16px 0px"
+        fontSize: "14px",
+        margin: "6px 0px 6px 0px"
       }
     },
     code: {
       component: Code,
     },
-    a: Link,
+    a: {
+      component: Link,
+      props: {
+        style: { fontSize: "14px", textDecoration: "underline", color: 'blue' }
+      }
+    },
     img: {
       component: Img,
       props: {
@@ -67,19 +72,20 @@ const config = {
     ol: {
       component: OrderedList,
       props: {
-        margin: "0px 0px 8px 10px"
+        margin: "0px 0px 0px 10px"
       },
     },
     li: {
       component: ListItem,
       props: {
-        marginLeft: "10px"
+        marginLeft: "10px",
+        fontSize: "14px"
       },
     },
     ul: {
       component: UnorderedList,
       props: {
-        margin: "0px 0px 8px 10px"
+        margin: "0px 0px 0px 10px"
       },
     },
     // table

@@ -22,9 +22,10 @@ export const Code = ({
           style={{
             ...style,
             overflow: "auto",
-            padding: "15px 10px",
+            padding: "10px",
+            margin: "12px 0px",
             borderRadius: "5px",
-            fontSize: "14px",
+            fontSize: "12px",
           }}
         >
           {tokens.map((line, i) => (

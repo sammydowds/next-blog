@@ -1,4 +1,4 @@
-export interface NoteFrontMatter {
+export interface NoteFrontMatter extends MetaData {
   id: string
   title: string
   description: string
@@ -6,7 +6,11 @@ export interface NoteFrontMatter {
   heroImage: string
 }
 
-export interface Note {
+export interface MetaData {
+  wordCount?: number
+  estimatedTime?: number
+}
+export interface Note extends MetaData {
   data: NoteFrontMatter,
-  content: string
+  content: string,
 }

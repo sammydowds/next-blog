@@ -1,6 +1,6 @@
 import { SingleColumnLayout } from '@/components/SingleColumnLayout'
 import { NoteFrontMatter } from '../types'
-import { Box, Text, Heading, VStack } from '@chakra-ui/react'
+import { Box, Text, Heading, VStack, Flex } from '@chakra-ui/react'
 import Head from 'next/head'
 import { getSortedNotesMetaData } from '../lib/posts'
 import { Header } from '@/components/Header'
@@ -21,16 +21,26 @@ export default function Notes({ notes }: NotesParams) {
 			<main>
 				<Header />
 				<SingleColumnLayout>
-					<VStack gap="20px">
+					<VStack>
 						{
 							notes.map((note) => {
 								return (
 									<Box key={note.id} w="100%">
 										<GithubLinkButton href={`/notes/${note.id}`} p="10px">
-											<Box>
+											<Flex direction="column">
 												<Heading as="h2" fontSize="18px">{note.title}</Heading>
-												<Text fontSize="12px">{note.date}</Text>
-											</Box>
+												<Flex alignContent="middle" fontSize="10px" gap="2px">
+													<Box>
+														{note.date}
+													</Box>
+													<Box>
+														·
+													</Box>
+													<Box>
+														{note.estimatedTime}m read
+													</Box>
+												</Flex>
+											</Flex>
 											<Text fontSize="14px">{note.description}</Text>
 										</GithubLinkButton>
 									</Box>
