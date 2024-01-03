@@ -94,9 +94,9 @@ A label for edges, might look like **within** (regions), **born_in**, **lives_in
 
 All information is stored in a form very simple three-part statements: _subject_, _predicate_, and _object_. 
 
-A _subject_ of a triple is equivalent to a vertex in a graph. For example: _Jim_, likes, apples.
+A _subject_ of a triple is equivalent to a vertex in a graph. For example: _Jim_, likes, apples. The _predicate_ would be the label of the edge. 
 
-The object is one of two things:
+The _object_ is one of two things:
 1. A value - "{ _predicate_:_object_ }", ie { age: 33 }
 2. Another vertex, in this case the predicate is an edge in the graph and the subject is a tail vertex, and the object is the head vertex. For example, (_lucy_, _marriedTo_, _alain_)
 
