@@ -1,41 +1,45 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 export const useInquiry = () => {
-  const [data, setData] = useState<any>()
-  const [error, setError] = useState<any>()
-  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState<any>();
+  const [error, setError] = useState<any>();
+  const [loading, setLoading] = useState(false);
 
-  const submitInquiry = (route?: string, name?: string, email?: string, inquiry?: string) => {
-
+  const submitInquiry = (
+    route?: string,
+    name?: string,
+    email?: string,
+    inquiry?: string,
+  ) => {
     if (!inquiry || !name || !route) {
-      return
+      return;
     }
-    setLoading(true)
+    setLoading(true);
     const options = {
       method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ route, name, email, inquiry })
-    }
-    fetch('/api/message', options)
+      body: JSON.stringify({ route, name, email, inquiry }),
+    };
+    fetch("/api/message", options)
       .then((response) => {
         if (response.ok) {
-          return response.json()
+          return response.json();
         } else {
-          throw Error("There was an issue posting your message")
+          throw Error("There was an issue posting your message");
         }
       })
       .then((fetchData) => {
-        setData(fetchData)
-        setLoading(false)
+        setData(fetchData);
+        setLoading(false);
       })
-      .catch(error => {
-        setError(error.message)
-        setLoading(false)
-      })
-  }
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  };
 
-  return { submitInquiry, loading, data, error, setData, setError }
-}
+  return { submitInquiry, loading, data, error, setData, setError };
+};

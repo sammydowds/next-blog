@@ -1,1 +1,1 @@
-export * from './MarkdownToJsx'
+export * from "./MarkdownToJsx";

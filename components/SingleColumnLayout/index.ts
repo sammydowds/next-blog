@@ -1,1 +1,1 @@
-export * from './SingelColumnLayout'
+export * from "./SingelColumnLayout";
