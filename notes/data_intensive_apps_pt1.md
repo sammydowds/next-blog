@@ -131,4 +131,12 @@ Another good example of the distinction, would be CSS (declarative) vs JS (imper
 
 Overall, all three models are popular today (document, relational, and graph).
 
+## Chapter 3 - Storage and Retrieval
+
+Why care about how the database handles storage and retrieval internally? You will need to select a storage engine that is appropriate for your application. In which, the book covers two types of storage engines: _log-structured_ and _page-oriented_. 
+
+Many databases use a _log_, which is an append-only data file. Note: log is not the traditional "log", but rather an append-only sequence of records. To help find a particular key in the database a different data-structure (metadata) is used to act as a signpost to help locate the data - this is called an _index_. Well-chosen indexes speed up read queries, but every index slows down writes.
+
+### Hash Indexes
+
 ## ...to be continued (I update this note after reading a chapter at a time)

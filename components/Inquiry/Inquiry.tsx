@@ -51,10 +51,10 @@ export const Inquiry = ({ modalTitle, buttonText, ctaText }: InquiryProps) => {
 
   return (
     <>
-      <Button onClick={handleOpenModal} borderRadius="0" height="60px" fontSize="20px" leftIcon={<TbBrandTelegram />}>{buttonText}</Button>
+      <Button onClick={handleOpenModal} borderRadius="5px" height="60px" fontSize="20px" leftIcon={<TbBrandTelegram />}>{buttonText}</Button>
       <Modal isOpen={isOpen} onClose={handleOnClose}>
         <ModalOverlay />
-        <ModalContent borderRadius="0" mx="5px">
+        <ModalContent borderRadius="5px" mx="5px">
           <ModalHeader>{modalTitle}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -81,9 +81,9 @@ export const Inquiry = ({ modalTitle, buttonText, ctaText }: InquiryProps) => {
             )}
           </ModalBody>
           <ModalFooter>
-            {!data && !error && <Button isDisabled={!name || !inquiry || !email} variant='ghost' mr={3} onClick={handleClick} leftIcon={<TbBrandTelegram />} isLoading={loading}>
+            {!data && !error ? <Button isDisabled={!name || !inquiry || !email} borderRadius="5px" variant='ghost' mr={3} onClick={handleClick} leftIcon={<TbBrandTelegram />} isLoading={loading}>
               {ctaText}
-            </Button>
+            </Button> : null
             }
           </ModalFooter>
         </ModalContent>

@@ -20,16 +20,17 @@ export default function Home() {
 						<VStack align="start" gap="10px">
 							<Heading>Hi, I am Sammy!</Heading>
 							<Text fontSize="16px">
-								I am an experienced full stack engineer working evenly on both sides of the stack.
+								What is it like to work with me? <Link color="blue" href="https://www.linkedin.com/in/sammy-d-521182b3/details/recommendations/?detailScreenTabIndex=0" isExternal>Find out here</Link>
 							</Text>
 							<Text fontSize="16px">
-								Most recently, I worked for <Link color="blue.500" href="https://www.zumper.com" isExternal>Zumper</Link> (real estate startup, ~30 engineers) shipping new features, pages, SEO improvements, workers, consumers, tables, and APIs.
+								I am an experienced full stack engineer working evenly on both sides of the stack.
+								Most recently, I worked for <Link color="blue" href="https://www.zumper.com" isExternal>Zumper</Link> (real estate startup, ~30 engineers) shipping new features, pages, SEO improvements, workers, consumers, tables, and APIs.
 							</Text>
 							<Text fontSize="16px">
 								I have worked with a range of languages, frameworks, and databases.
 								I am currently looking for my next challenge. Want to chat?
 								Message me below, or on LinkedIn, or at{" "}
-								<Link color="blue.500" href="mailto:sammycdowds@gmail.com">
+								<Link color="blue" href="mailto:sammycdowds@gmail.com">
 									sammycdowds@gmail.com
 								</Link>
 								.
