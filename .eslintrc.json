@@ -1,6 +1,7 @@
 {
   "extends": [
     "eslint:recommended",
-    "next"
+    "next",
+    "prettier"
   ]
 }
