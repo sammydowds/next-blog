@@ -4,6 +4,11 @@ import { GithubLinkButton } from "../GithubLinkButton"
 
 const recommendations = [
   {
+    content: "He quickly became one of our top fullstack engineers, by constantly proving his excellent vision as an engineer and his kindness.",
+    who: "Hugo Pineda",
+    position: "Staff Frontend Engineer - Zumper"
+  },
+  {
     content: "His execution and attention to detail makes collaborating with him very seamless and easy.",
     who: "Tela Cheang",
     position: "Designer - Zumper",
@@ -19,11 +24,15 @@ const recommendations = [
     position: "Senior Backend Engineer - Zumper"
   },
   {
-    content: "He quickly became one of our top fullstack engineers, by constantly proving his excellent vision as an engineer and his kindness.",
-    who: "Hugo Pineda",
-    position: "Staff Frontend Engineer - Zumper"
-  } 
-
+    content: "Sammy has been a very valued employee here at Acieta. His positive energy and great work efficiency will be missed.",
+    who: "Robert Komljenovic",
+    position: "CEO at Acieta"
+  },
+  {
+    content: "I highly recommend Sammy to any new employer. His drive, learning ability and his interpersonal skills will make him a valuable team member.",
+    who: "Dhumketu Patel",
+    position: "Solutions Engineer at Michelin"
+  }
 ]
 
 interface RecommendationSlideProps {
