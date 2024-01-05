@@ -2,7 +2,6 @@ import Head from "next/head";
 import { Box, Heading, Link, Text, VStack } from "@chakra-ui/react";
 import { SingleColumnLayout } from "@/components/SingleColumnLayout";
 import { Inquiry } from "@/components/Inquiry";
-import { Header } from "@/components/Header";
 import { Projects } from "@/components/Projects";
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
         />
       </Head>
       <main>
-        <Header />
         <SingleColumnLayout>
           <Box>
             <VStack align="start" gap="10px">

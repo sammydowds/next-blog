@@ -3,7 +3,6 @@ import { NoteFrontMatter } from "../types";
 import { Box, Text, Heading, VStack, Flex } from "@chakra-ui/react";
 import Head from "next/head";
 import { getSortedNotesMetaData } from "../lib/posts";
-import { Header } from "@/components/Header";
 import { GithubLinkButton } from "@/components/GithubLinkButton";
 
 interface NotesParams {
@@ -22,7 +21,6 @@ export default function Notes({ notes }: NotesParams) {
         />
       </Head>
       <main>
-        <Header />
         <SingleColumnLayout>
           <VStack>
             {notes.map((note) => {

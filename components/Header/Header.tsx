@@ -27,6 +27,7 @@ export const Header = () => {
             height="40"
             width="40"
             style={{ borderRadius: "40px" }}
+            priority
           />
           {!isViewingNote ? (
             <>
