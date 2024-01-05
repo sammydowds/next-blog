@@ -14,7 +14,7 @@ const recommendations = [
     position: "Staff Backend Engineer - Zumper",
   },
   {
-    content: "Sammy's technical breadth is truly impressive -- he has worked on countless front end interfaces, back end API implementations, data ingestion pipelines, developing caching strategies, and overhauls of our front end testing/logging systems.",
+    content: "Sammy's technical breadth is truly impressive...",
     who: "Max Del Guidice",
     position: "Senior Backend Engineer - Zumper"
   },
