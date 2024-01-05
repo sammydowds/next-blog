@@ -19,7 +19,7 @@ export default function Home() {
       <main>
         <SingleColumnLayout>
           <Box>
-            <VStack align="start" gap="10px">
+            <VStack align="start" gap="20px" mb="100px">
               <Heading>Hi, I am Sammy!</Heading>
               <Text fontSize="16px">
                 I am an experienced full stack engineer working evenly on both
@@ -31,7 +31,7 @@ export default function Home() {
                 pages, SEO improvements, workers, consumers, tables, and APIs.
               </Text>
               <RecommendationsCarousel />
-              <Box pt="30px" alignSelf="end">
+              <Box pt="30px" alignSelf="center">
                 <Inquiry
                   buttonText="Drop me a message"
                   ctaText="Send"
