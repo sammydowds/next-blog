@@ -17,7 +17,7 @@ export const SimpleAutoCarousel =  ({ rtl = false, duration, children, style }: 
     }, 
     [
         (slider) => {
-          let timeout
+          let timeout: ReturnType<typeof setTimeout>
           let mouseOver = false
           function clearNextTimeout() {
             clearTimeout(timeout)
