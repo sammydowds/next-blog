@@ -9,7 +9,7 @@ labels: "personal"
 
 How do I start a business? How do I know if it will be successful? What resources are there? 
 
-These were a few questions I had when I was hit with my seasonal entreprenural bug in February of 2023. I went on a deep-ish dive into answering these questions. Then, I built a platform to write and plan businesses. 
+These were a few questions I had when I was hit with my seasonal entrepreneurial bug in February of 2023. I went on a deep-ish dive into answering these questions. Then, I built a platform to write and plan businesses. 
 
 The focus of this post will be the technical design and the tiny attempt I made to get some sign ups.
 
