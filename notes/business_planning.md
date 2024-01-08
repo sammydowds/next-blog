@@ -89,7 +89,7 @@ I thought it might be nice to show what my folder structure looked like inside t
 
 ## Backend Details
 
-I really took a lot of effort to sharpen my backend skills on the projects. I created documenation for each endpoint as well as integration tests (using [vitest](https://vitest.dev/)). It made creating and remembering endpoint structure super simple. In writing this article, it was super helpful to have it organize because I can now easily reference endpoint information (mashed together below in the API table).
+On this project, I really focused on organization. I created documenation for each endpoint as well as integration tests (using [vitest](https://vitest.dev/)). It made creating and remembering endpoint structure super simple. In writing this article, it was super helpful to have it organize because I can now easily reference endpoint information (mashed together below in the API table).
 
 On top of that, when switching contexts - I find it nicer that the code exists outside of the frontend source code. 
 
