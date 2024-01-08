@@ -161,4 +161,4 @@ I enjoy taking a vision/design to production. I love working through the entire 
 
 Would I recommend doing something like this for a real product? Mostly no. If I _really_ wanted to build a successful product - instead of building a platform first I would build a funnel and group of users who would be early adopters. Create the landing page, marketing, and ads _first_. Then decide if the customer's exist before spending energy on the engineering.
 
-I built this almost 1/2 a year ago, so I could be forgetting details in this post. But I hope it flexes some technical capability and serves as a word of warning for those hacking after work - pace yourself and find customers!  
+I built this almost 6months ago, so I could be forgetting details in this post. But I hope it flexes some technical capability and serves as a word of warning for those hacking after work - pace yourself and find customers!  
