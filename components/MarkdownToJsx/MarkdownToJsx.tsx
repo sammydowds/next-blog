@@ -14,8 +14,21 @@ import {
   Tr,
   Th,
   Td,
+  TableContainer,
+  TableProps,
 } from "@chakra-ui/react";
 import { Link } from "@/components/Link";
+import { ReactNode } from "react";
+
+const ChakraTable = ({ children, ...props }: { children: ReactNode[], props: TableProps}) => {
+  return (
+      <TableContainer>
+        <Table {...props}>
+          {children}
+        </Table>
+      </TableContainer>
+    )
+}
 
 const config = {
   overrides: {
@@ -80,7 +93,7 @@ const config = {
         width: "100%",
         height: "300px",
         borderRadius: "5px",
-        objectFit: "cover",
+        objectFit: "contain",
       },
     },
     ol: {
@@ -104,9 +117,12 @@ const config = {
     },
     // table
     table: {
-      component: Table,
+      component: ChakraTable,
       props: {
         variant: "striped",
+        display: "scroll",
+        fontSize: "12px",
+        parent: TableContainer
       },
     },
     thead: {
