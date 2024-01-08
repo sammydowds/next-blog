@@ -1,6 +1,5 @@
 import { Card, CardBody, Flex, Link } from '@chakra-ui/react'
 import { IoIosStar } from "react-icons/io";
-import { GithubLinkButton } from './GithubLinkButton';
 
 export const HighlightedPost = () => {
   return(
