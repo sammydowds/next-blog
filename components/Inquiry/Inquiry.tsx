@@ -72,8 +72,6 @@ export const Inquiry = ({ modalTitle, buttonText, ctaText }: InquiryProps) => {
       <Button
         onClick={handleOpenModal}
         borderRadius="5px"
-        height="60px"
-        fontSize="20px"
         leftIcon={<TbBrandTelegram />}
       >
         {buttonText}

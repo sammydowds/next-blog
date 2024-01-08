@@ -1,9 +1,8 @@
 import Head from "next/head";
-import { Box, Heading, Link, Text, VStack } from "@chakra-ui/react";
+import { Box, Card, CardBody, CardFooter, CardHeader, Divider, Flex, Heading, Link, Text, VStack } from "@chakra-ui/react";
 import { SingleColumnLayout } from "@/components/SingleColumnLayout";
 import { Inquiry } from "@/components/Inquiry";
 import { Projects } from "@/components/Projects";
-import { RecommendationsCarousel } from "@/components/RecommendationsCarousel/RecommendationsCarousel";
 import { HighlightedPost } from "@/components/HighlightedPost";
 export default function Home() {
   return (
@@ -23,24 +22,30 @@ export default function Home() {
             <VStack align="start" gap="20px" mb="100px">
               <Heading>Hi, I am Sammy!</Heading>
               <HighlightedPost />
-              <Text fontSize="16px">
-                I am an experienced full stack engineer working evenly on both
-                sides of the stack. Most recently, I worked for{" "}
-                <Link color="blue" href="https://www.zumper.com" isExternal>
-                  Zumper
-                </Link>{" "}
-                (real estate startup, ~30 engineers) shipping new features,
-                pages, SEO improvements, workers, consumers, tables, and APIs.
-              </Text>
-              <RecommendationsCarousel />
-              <Box pt="30px" alignSelf="center">
-                <Inquiry
-                  buttonText="Drop me a message"
-                  ctaText="Send"
-                  modalTitle="Lets get in touch"
-                  secondaryCtaText="Close"
-                />
-              </Box>
+              <Card>
+                <CardHeader p="10px" fontSize="14px" fontWeight="bold">About Me</CardHeader>
+                <CardBody p="10px">
+                  <Text fontSize="14px">
+                    I am an experienced full stack engineer working evenly on both
+                    sides of the stack. Most recently, I worked for{" "}
+                    <Link color="blue" href="https://www.zumper.com" isExternal>
+                      Zumper
+                    </Link>{" "}
+                    (real estate startup, ~30 engineers) shipping new features,
+                    pages, SEO improvements, workers, consumers, tables, and APIs.
+                  </Text>
+                </CardBody>
+                <CardFooter>
+                  <Flex justifyContent="end">
+                    <Inquiry
+                      buttonText="Drop me a message"
+                      ctaText="Send"
+                      modalTitle="Lets get in touch"
+                      secondaryCtaText="Close"
+                    />
+                  </Flex>
+                </CardFooter>
+              </Card>
             </VStack>
             <Projects />
           </Box>

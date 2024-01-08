@@ -5,7 +5,7 @@ export const HighlightedPost = () => {
   return(
     <Card w="100%" >
       <CardBody p="10px">
-        <Flex alignItems="center" fontSize={{ lg: "16px", base: "12px"}} w="100%" justifyContent="space-between">
+        <Flex alignItems="center" fontSize={{ lg: "14px", base: "12px"}} w="100%" justifyContent="space-between">
           <Flex alignItems="center" gap="5px">
           <IoIosStar color="gold" size="24px" />
             Check out one of my best blog posts
