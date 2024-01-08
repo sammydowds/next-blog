@@ -50,7 +50,7 @@ I brought in one of my fellow colleagues who I had worked with at Zumper, Tela C
 
 ![Figma Daily Business Planning](/figma_dbp.png)
 
-Tela nailed the changes and improvemnts I was looking for and also advised some changes I should make to the UX. Her help was invaluable to helping me getting this project done. 
+Tela nailed the changes and improvements I was looking for and also advised some changes I should make to the UX. Her help was invaluable to helping me get this project done. 
 
 ![Example Improvements](/example_improvements.png)
 ## Frontend Details
