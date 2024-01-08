@@ -9,7 +9,7 @@ labels: "personal"
 
 How do I start a business? How do I know if it will be successful? What resources are there? 
 
-These were a few questions I had when I was hit with my seasonal entreprenural bug in Feburary of 2023. I went on a deep-ish dive into answering these questions. Then, I built a platform to write and plan businesses. 
+These were a few questions I had when I was hit with my seasonal entreprenural bug in February of 2023. I went on a deep-ish dive into answering these questions. Then, I built a platform to write and plan businesses. 
 
 The focus of this post will be the technical design and the tiny attempt I made to get some sign ups.
 
@@ -33,7 +33,7 @@ On top of those two motivators, when I looked around the market I did not see an
 
 The platform would consist of the following features: users, text editor for writing plans (markdown), storing plans, ChatGPT integration, checklists, templates, competitor discovery, similar company research via SEC filings, and ability to export to PDF. Initially, I wanted to build something fast. I chose Next JS to bootstrap an API and frontend for the dashboard. I built the initial version over about a week time-period. 
 
-After building it, I was not satisfied with the UI or the technical implementation. I am not a designer, and I didnt realize the complexity of trying to make these features look good next to each other. As for the technical side of things, I had hacked so quickly and passionately that I built in some features that I thought were straying away for the "simple" aspect of what a business planning platform should be (I created a bot profiles). 
+After building it, I was not satisfied with the UI or the technical implementation. I am not a designer, and I didnt realize the complexity of trying to make these features look good next to each other. As for the technical side of things, I had hacked so quickly and passionately that I built in some features that I thought were straying away from the "simple" aspect of what a business planning platform should be (I created a bot profiles). 
 
 I have included some _early_ images of my MVP below (2 iterations on the UI). _Please_ Enjoy.
 
@@ -55,7 +55,7 @@ Tela nailed the changes and improvemnts I was looking for and also advised some 
 ![Example Improvements](/example_improvements.png)
 ## Frontend Details
 
-Checkout my [intro video to see the frontend implimentation](https://www.loom.com/share/e342e5ddc6a34199845284b83b89e00a?sid=89287f5b-ad4f-43df-8e9f-aafc54b3cc30) in the video, yes - its a live demo. 
+Checkout my [intro video to see the frontend implementation](https://www.loom.com/share/e342e5ddc6a34199845284b83b89e00a?sid=89287f5b-ad4f-43df-8e9f-aafc54b3cc30) in the video, yes - its a live demo. 
 
 The frontend philosophy is that of most dashboards, a single page application which does not require server-side rendering. I built it with React and Vite. On top of that, I used TypeScript to ensure a smoother developer experience. My goal was to make it simple enough to deploy from any platform or static hosting platform (ended up going with Netlify for pre-launch).
 
@@ -116,7 +116,7 @@ auth
 └── service.ts # database level integrations
 ```
 
-Here is part of each endpoints documentation mashed into one table. Enjoy.
+Here is part of each endpoints documentation combined into one table. Enjoy.
 
 
 | Endpoint     | Description | Method |
@@ -149,7 +149,7 @@ Here is part of each endpoints documentation mashed into one table. Enjoy.
 
 So I did what any over-zealous engineer would do - built an entire platform before having any users. #Winning. 
 
-After building it and thinking "wow, its pretty cool." -- I devised a plan to get some feedback. My plan was simple and minimal (I wasnt looking to seriously launch at this point). I would go on reddit, and post about it on a few "entreprenural" sub-reddits and try to drive traffic to the landing page. 
+After building it and thinking "wow, its pretty cool." -- I devised a plan to get some feedback. My plan was simple and minimal (I wasnt looking to seriously launch at this point). I would go on reddit, and post about it on a few "entrepreneurial" sub-reddits and try to drive traffic to the landing page. 
 
 On that landing page, I embedded a loom video plus a google form for people to sign up to a waitlist. This resulted in a few sign ups, and a couple of bots asking to connect on Twitter. Maybe I will run an ad campaign on Meta to see what kind of CTR I could get to the landing page and sign-ups. 
 
