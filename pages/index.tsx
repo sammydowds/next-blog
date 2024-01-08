@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box, Card, CardBody, CardFooter, CardHeader, Divider, Flex, Heading, Link, Text, VStack } from "@chakra-ui/react";
+import { Box, Card, CardBody, CardFooter, CardHeader, Flex, Heading, Link, Text, VStack } from "@chakra-ui/react";
 import { SingleColumnLayout } from "@/components/SingleColumnLayout";
 import { Inquiry } from "@/components/Inquiry";
 import { Projects } from "@/components/Projects";
