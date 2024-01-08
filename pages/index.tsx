@@ -4,6 +4,7 @@ import { SingleColumnLayout } from "@/components/SingleColumnLayout";
 import { Inquiry } from "@/components/Inquiry";
 import { Projects } from "@/components/Projects";
 import { RecommendationsCarousel } from "@/components/RecommendationsCarousel/RecommendationsCarousel";
+import { HighlightedPost } from "@/components/HighlightedPost";
 export default function Home() {
   return (
     <>
@@ -21,6 +22,7 @@ export default function Home() {
           <Box>
             <VStack align="start" gap="20px" mb="100px">
               <Heading>Hi, I am Sammy!</Heading>
+              <HighlightedPost />
               <Text fontSize="16px">
                 I am an experienced full stack engineer working evenly on both
                 sides of the stack. Most recently, I worked for{" "}
