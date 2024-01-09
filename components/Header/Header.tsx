@@ -18,6 +18,7 @@ export const Header = () => {
       top="0"
       padding="20px"
       backdropFilter="blur(10px)"
+      zIndex="1000"
     >
       <HStack maxW="500px" w="100%" justify="space-between">
         <Flex alignItems="center" gap="4px">
