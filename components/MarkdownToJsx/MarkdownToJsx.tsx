@@ -20,15 +20,19 @@ import {
 import { Link } from "@/components/Link";
 import { ReactNode } from "react";
 
-const ChakraTable = ({ children, ...props }: { children: ReactNode[], props: TableProps}) => {
+const ChakraTable = ({
+  children,
+  ...props
+}: {
+  children: ReactNode[];
+  props: TableProps;
+}) => {
   return (
-      <TableContainer>
-        <Table {...props}>
-          {children}
-        </Table>
-      </TableContainer>
-    )
-}
+    <TableContainer>
+      <Table {...props}>{children}</Table>
+    </TableContainer>
+  );
+};
 
 const config = {
   overrides: {
@@ -122,7 +126,7 @@ const config = {
         variant: "striped",
         display: "scroll",
         fontSize: "12px",
-        parent: TableContainer
+        parent: TableContainer,
       },
     },
     thead: {
