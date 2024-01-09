@@ -95,7 +95,7 @@ On top of that, when switching contexts - I find it nicer that the code exists o
 
 #### Data Model
 
-For the features, I created multiple tables which mostly all tie back to the notion of a single _plan_. This plan stored a string which would be consumed by the text editor on the frontend. Any edits to via the text editor would be automatically saved to the database (debounced of course on the FE side). I wanted to separate out the chat and checklist data in order to use separate endpoints and hooks on the frontend, this is cleaner from an API and frontend perspective. 
+For the features, I created multiple tables which mostly all tie back to the notion of a single _plan_. Each plan stores a string which is consumed by the text editor on the frontend. Any edits to the plan via the text editor would automatically be saved to the database (debounced on the FE side). I wanted to separate out the chat and checklist data in order to use separate endpoints and hooks on the frontend, this is cleaner from an API and frontend perspective. 
 
 ![Data Model Daily Business Plan](/data_model_business_planning.png)
 
