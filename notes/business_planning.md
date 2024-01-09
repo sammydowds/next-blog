@@ -89,13 +89,13 @@ I thought it might be nice to show what my folder structure looked like inside t
 
 ## Backend Details
 
-On this project, I really focused on organization. I created documentation for each endpoint as well as integration tests (using [vitest](https://vitest.dev/)). It made creating and remembering endpoint structure super simple. In writing this article, it was super helpful to have it organize because I can now easily reference endpoint information (mashed together below in the API table).
+On this project, I really focused on organization. I created documentation for each endpoint as well as integration tests (using [vitest](https://vitest.dev/)). It made creating and remembering endpoints way easier.
 
 On top of that, when switching contexts - I find it nicer that the code exists outside of the frontend source code. 
 
-#### Data Models
+#### Data Model
 
-The data modeling became more complex due to the features I wanted to include (checklists, chat, etc). I used Prisma as my ORM, and find that delightful with TypeScript projects.  
+For the features, I created multiple tables which mostly all tie back to the notion of a single _plan_. This plan stored a string which would be consumed by the text editor on the frontend. Any edits to via the text editor would be automatically saved to the database (debounced of course on the FE side). I wanted to separate out the chat and checklist data in order to use separate endpoints and hooks on the frontend, this is cleaner from an API and frontend perspective. 
 
 ![Data Model Daily Business Plan](/data_model_business_planning.png)
 
