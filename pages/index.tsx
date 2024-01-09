@@ -28,7 +28,7 @@ export default function Home() {
                   <Text fontSize="14px">
                     I am an experienced full stack engineer working evenly on both
                     sides of the stack. Most recently, I worked for{" "}
-                    <Link color="blue" href="https://www.zumper.com" isExternal>
+                    <Link color="blue" textDecoration="underline" href="https://www.zumper.com" isExternal>
                       Zumper
                     </Link>{" "}
                     (real estate startup, ~30 engineers) shipping new features,
@@ -36,7 +36,7 @@ export default function Home() {
                   </Text>
                 </CardBody>
                 <CardFooter>
-                  <Flex justifyContent="end">
+                  <Flex justifyContent="end" w="100%">
                     <Inquiry
                       buttonText="Drop me a message"
                       ctaText="Send"
