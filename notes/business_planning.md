@@ -91,7 +91,7 @@ On my final iteration, I isolated the backend code into a new folder within the 
 
 For the features, I created multiple tables which mostly all tie back to the notion of a single _plan_. Each plan stores a string which is consumed by the text editor on the frontend. Any edits to the plan via the text editor would automatically be saved to the database (debounced on the FE side). I chose to store the chat and checklist data separately, since that made it easier to implement unique endpoints and hooks on the frontend. This is cleaner from an API and frontend perspective. 
 
-![Data Model Daily Business Plan](/business_plans_data.png)
+![Data Model Daily Business Plan](/business_planning_data.png)
 
 #### API
 
