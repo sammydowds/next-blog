@@ -1,6 +1,6 @@
 ---
 title: "Building a business plan platform"
-description: "Earlier this year, I spent a too much time building out a full stack solution for writing a business plan. Here is how I built it."
+description: "I built a full stack application using React, Vite, Express, and Postgres to create and store business plans. Features included ChatGPT integrations, checklists, templates, and recon of similar businesses."
 date: "01/08/2024"
 labels: "personal"
 ---
