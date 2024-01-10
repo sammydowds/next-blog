@@ -7,59 +7,55 @@ labels: "personal"
 
 # Plan Your Business
 
-How do I start a business? How do I know if it will be successful? What resources are there? 
+In this post, I am going to give details about how I built out a platform to write business plans -- from the database to the frontend.
 
-These were a few questions I had when I was hit with my seasonal entrepreneurial bug in February of 2023. I went on a deep-ish dive into answering these questions. Then, I built a platform to write and plan businesses. 
+Check out the [simple landing page here](https://www.planyourbusiness.app/) and watch the video!
 
-The focus of this post will be the technical design and the tiny attempt I made to get some sign ups.
+## Scope
+
+The app was to have mutliple features: create/update/delete business plans, markdown text editor, AI generated plans, templates, chat with ChatGPT about your plan, plan checklist, and a few features to help you recon the industry of your potential business.
 
 ## The Research
 
 The first resource I found on starting a business was the U.S. Small Business Administration. They have guides ranging from [planning](https://www.sba.gov/business-guide/plan-your-business) to [funding](https://www.sba.gov/business-guide/grow-your-business/get-more-funding) of a small business. It was consistently the best resource that I found for answering questions. 
 
-Another resource which proved to be useful was the business section of the [library of congress](https://guides.loc.gov/small-business-hub). I thought that was surprising, but I have not dabbled with its resources before. The [research guides](https://guides.loc.gov/) provided by the library of congress cover a bunch of different subjects, making it a valuable resource to learn about any topic you are interested in. 
+Another resource which proved to be useful was the business section of the [library of congress](https://guides.loc.gov/small-business-hub). The [research guides](https://guides.loc.gov/) provided by the library of congress cover a bunch of different subjects, making it a valuable tool to learn about any topic you are interested in. 
 
-Lastly, in parallel with the small business association is [SCORE](https://www.score.org/). I found a few resources on the site useful, but not nearly as useful as the two resources above. I also find it confusing on why it seems SCORE and SBA are so similar, and rely on each other. 
+Lastly, in parallel with the small business administration is [SCORE](https://www.score.org/). I found a few pages on the site useful, but not nearly as useful as the SBA or Library of Congress. I also find it confusing that SCORE and SBA are so similar yet rely on each other (partnerships). 
 
-## Why build a platform?
-
-Even with a pile of information sitting in front of me - starting with a blank word document still felt intimidating (how do I structure, how do I know its a good plan, etc). 
-
-So my software engineering instincts kicked in. "I can build it". Over the years I have gotten better at judging whether or not I should spend hours on a side-project or not, but this felt like a good learning experience (a mix of business with engineering). 
-
-On top of those two motivators, when I looked around the market I did not see any "oh, this is nice" business planning sites/apps (yes, yes - subjective). A few sites I dug up were [LivePlan](https://www.liveplan.com/product-tour), [Aha!](https://www.aha.io/roadmaps/overview), and [BizPlan](https://www.bizplan.com/). I was not blown away by any of those, and I found that the user experience felt less like "helping you write" and more of a combination of a bunch of forms. I wanted to still have the "blank slate" feel - but features that helped you get started with the experience of a traditional text editor. 
+When I looked around the market I did not see any "oh, this is nice" business planning sites/apps (yes, yes - subjective). A few sites I dug up were [LivePlan](https://www.liveplan.com/product-tour), [Aha!](https://www.aha.io/roadmaps/overview), and [BizPlan](https://www.bizplan.com/). I was not blown away by any of those, and I found that the user experience felt less like "helping you write" and more of a combination of a bunch of forms. I wanted to still have the "blank slate" feel - but features that helped you get started with the experience of a traditional text editor. 
 
 ## Quick MVP
 
-The platform would consist of the following features: users, text editor for writing plans (markdown), storing plans, ChatGPT integration, checklists, templates, competitor discovery, similar company research via SEC filings, and ability to export to PDF. Initially, I wanted to build something fast. I chose Next JS to bootstrap an API and frontend for the dashboard. I built the initial version over about a week time-period. 
-
-After building it, I was not satisfied with the UI or the technical implementation. I am not a designer, and I didnt realize the complexity of trying to make these features look good next to each other. As for the technical side of things, I had hacked so quickly and passionately that I built in some features that I thought were straying away from the "simple" aspect of what a business planning platform should be (I created a bot profiles). 
-
-I have included some _early_ images of my MVP below (2 iterations on the UI). _Please_ Enjoy.
+I jumped right into this project and built an MVP as fast as I possibly could. I utilized Next JS to spin up both the APi and frontend quickly. Below are a few iterations of that MVP's UI. After making it to my second UI iteration, I wanted to bring in a designer to help me transform the UI into something professional.
 
 ![Bot William Iteration 1](/william_bot.png)
 
 
 ![Iteration 2](/og.png)
 
-So, at this point I knew I needed to get a designer involved, because... well you can see for yourself. I also hatched a new plan to move off of Next JS. 
-
 ## Improving Designs
 
-I brought in one of my fellow colleagues who I had worked with at Zumper, Tela Cheang, to help me improve the design. I contracted her to help me build out a more professional version of the dashboard I had hacked together. Below is the screenshot of the Figma we collaborated in!
+I brought in one of my colleagues who I had worked with at Zumper, Tela Cheang, to help me improve the design. I contracted her to help me build out a more professional version of the dashboard I had hacked together. Below is the screenshot of the Figma we collaborated in!
 
 ![Figma Daily Business Planning](/figma_dbp.png)
 
 Tela nailed the changes and improvements I was looking for and also advised some changes I should make to the UX. Her help was invaluable to helping me get this project done. 
 
 ![Example Improvements](/example_improvements.png)
+
+## Improving the Architecture
+
+Initially I bootstrapped the app with Next JS's ([pages/api directory](https://nextjs.org/docs/pages)). I found three things I did not like about this architecture as my project grew in size:
+1. Vercel - it felt like I had minimal control or visibility over the deployment platform (automatic timeouts on lambdas, future costs, etc)
+2. Overdesigned - for an app that is _mostly_ rendered client-side, Next JS might not be the right solution (one of its main value propositions is solving SSR for you) 
+3. Co-mingling of backend and frontend code - maybe this is old school, but like having the frontend and backend completely isolated
+
 ## Frontend Details
 
-Checkout my [intro video to see the frontend implementation](https://www.loom.com/share/e342e5ddc6a34199845284b83b89e00a?sid=89287f5b-ad4f-43df-8e9f-aafc54b3cc30) in the video, yes - its a live demo. 
+The frontend philosophy is that of most dashboards, a single page application which does not require server-side rendering. On my final iteration, I removed the usage of Next JS. I started with a blank slate via the [Vite react-ts template](https://github.com/vitejs/vite/tree/main/packages/create-vite#create-vite-). My goal was to make it simple enough to deploy from any platform or static hosting platform.
 
-The frontend philosophy is that of most dashboards, a single page application which does not require server-side rendering. I built it with React and Vite. On top of that, I used TypeScript to ensure a smoother developer experience. My goal was to make it simple enough to deploy from any platform or static hosting platform (ended up going with Netlify for pre-launch).
-
-I am just going to compile a list of packages I used, and assume that you mostly can piece together the architecture: 
+The architecture consisted of the following packages: 
 - React
 - Chakra UI
 - react-pdf/renderer
@@ -69,9 +65,9 @@ I am just going to compile a list of packages I used, and assume that you mostly
 - react-markdown
 - react-icons
 
-I also built in the ability to pre-render some of the pages (landing page) - since most of the app is rendered on the client. A key part of my design was to also not utilize local storage for credentials. Instead, I opted to include [credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) on requests that utilized them.  
+I also built in the ability to pre-render some of the pages (landing page) - since most of the app is rendered on the client.
 
-#### General File Structure - client /src
+#### Frontend File Structure 
 
 I thought it might be nice to show what my folder structure looked like inside the client's source folder. So here you go.
 
@@ -89,21 +85,17 @@ I thought it might be nice to show what my folder structure looked like inside t
 
 ## Backend Details
 
-On this project, I really focused on organization. I created documentation for each endpoint as well as integration tests (using [vitest](https://vitest.dev/)). It made creating and remembering endpoints way easier.
-
-On top of that, when switching contexts - I find it nicer that the code exists outside of the frontend source code. 
+On my final iteration, I isolated the backend code into a new folder within the repo. I utilized Express to build out the final version of the API with a focus on documentation, standardization, and integration tests (via [vitest](https://vitest.dev/)).
 
 #### Data Model
 
-For the features, I created multiple tables which mostly all tie back to the notion of a single _plan_. Each plan stores a string which is consumed by the text editor on the frontend. Any edits to the plan via the text editor would automatically be saved to the database (debounced on the FE side). I wanted to separate out the chat and checklist data in order to use separate endpoints and hooks on the frontend, this is cleaner from an API and frontend perspective. 
+For the features, I created multiple tables which mostly all tie back to the notion of a single _plan_. Each plan stores a string which is consumed by the text editor on the frontend. Any edits to the plan via the text editor would automatically be saved to the database (debounced on the FE side). I chose to store the chat and checklist data separately, since that made it easier to implement unique endpoints and hooks on the frontend. This is cleaner from an API and frontend perspective. 
 
-![Data Model Daily Business Plan](/data_model_business_planning.png)
+![Data Model Daily Business Plan](/business_plans_data.png)
 
 #### API
 
-The API from a code standpoint is pretty straightforward, the most difficult part of the process was keeping the API simple based on the various features. 
-
-On this project, I wanted to focus on re-learning authentication -- So I did what I do not recommend, rolled my own. Each endpoint is a folder in the src folder, and generally follow the structure below. 
+The most difficult part of this project was keeping the API simple to meet the needs of the various features I wanted to implement. Each features was broken into a batch of endpoints. Each endpoint is a folder in the src folder, and generally follows the structure below. 
 
 ```bash
 auth
@@ -157,8 +149,8 @@ On that landing page, I embedded a loom video plus a google form for people to s
 
 ## Final Thoughts
 
-I enjoy taking a vision/design to production. I love working through the entire stack to build a system that solves a specific problem(s). Doing this myself allowed me to explore the creative side of my brain and build something that I felt is well documented and organized. 
+I enjoy taking a vision/design to production. I love working through the entire stack to build a system that solves a specific problem. This project allowed me to express my creativity, learn more about small businesses, and learn more about my skills and limits. 
 
-Would I recommend doing something like this for a real product? Mostly no. If I _really_ wanted to build a successful product - instead of building a platform first I would build a funnel and group of users who would be early adopters. Create the landing page, marketing, and ads _first_. Then decide if the customer's exist before spending energy on the engineering.
+For my next project, the first thing I will probably do is build out a funnel to bring in and construct a group of potential customers. Then determine if building a solution will pay off. Every action should provide momentum to an end objective, efficiently. Building out a platform first is a bad idea.  
 
-I built this almost 6months ago, so I could be forgetting details in this post. But I hope it flexes some technical capability and serves as a word of warning for those hacking after work - pace yourself and find customers!  
+I built this almost 6 months ago, so I could be forgetting details in this post. But I hope it flexes some technical capability and serves as a word of warning for those hacking after work - pace yourself and find customers!  
