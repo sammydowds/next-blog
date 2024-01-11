@@ -139,4 +139,39 @@ Many databases use a _log_, which is an append-only data file. Note: log is not 
 
 ### Hash Indexes
 
+Keep an _in-memory_ hash map where every key is mapped to a byte offset in the data file stored _on-disk_ (the location at which the value can be found). Whenever appending new key, value pairs you also updat the hash map to reflect the offset of the data you just wrote.
+
+#### Optimizing Memory
+
+Break the data file into segments (create a new segment once the file hits a mem limit). On those segments, perform compaction - meaning throw away duplicate keys in the log, and only keep the most recent update for each key. During compaction, you can also merge several segments together. The merged segment is written to a file, and then the read process switched to that merged segment. The old segments can now be deleted.  
+
+Each segment will have its own in memory hash table, mapping keys to the file offsets. First check most recent segment's hash map, if not there, check the second-most-recent segment. Repeat. 
+
+### SSTables and LSM-Trees
+
+Sorted String Table means that there is a requirement to sort the key-value pairs _by key_ and that each key only appears _once_ in each merged segment file (although compaction should already ensure that).
+
+This approach has several advantages over log segments with hash indexes: 
+- Merging segments is simple and efficient (same approach as mergesort)
+- You no longer need an index of all keys in memory, but rather can rely on the sort assuming you know two keys it could be between. So you could have one key for every few kb.
+- Reduced I/O bandwidth because you group the records and compress the data before writing to disk (data between two indexes)
+
+#### Constructing and maintaining SSTables
+
+How do you sort the data?
+1. Write comes in, add it to an in-mem balanced tree data (red-black tree), called a _memtable_ 
+2. When the memtable gets too big, write it to disk as an SSTable. This file becomes the most recent segment of the database.
+3. For a read, try to find data in the _memtable_, then in the most recent on-disk segment, then older segment 
+4. Periodically run a merging and compaction process in the background
+
+One big issue - if the database crashes, the most recent writes (_memtable_) are lost. To avoid this issue, we can keep a separate log on disk to which every write is appended.
+
+### B-Trees
+
+In previous examples, the log-structured indexes were broken into variable-size segments, several MB in size, and always write sequentially. B-Tress break the database down into fixed-size blocks or pages (4kb typically), and read or write one page at a time. Note: this corresponds with how hardware is arranged, fixed-size blocks.
+
+Each page is identified using an address or location. One page can refer to another - similar to a pointer, but on disk instead of in-memory. With this reference you can construct a tree of pages.
+
+One page is designed as the _root_ of the B-tree. The page contains keys and references to child pages. Eventually you get to a leaf page, containing values.  
+
 ## ...to be continued (I update this note after reading a chapter at a time)
