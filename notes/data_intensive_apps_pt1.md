@@ -9,7 +9,7 @@ labels: "data"
 
 I started reading [this book](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321) after being laid off. A lot of people online recommended it, and I figured it would be great to dive into something more technical while job hunting. 
 
-On top of that, I have implemented some patterns myself at my previous job (batch jobs, streaming data) and wanted to have a deeper knowledge on topics surrounding those patterns. 
+NOTE: this is not meant to be a "structure blog post", but rather small summaries or notes on things I found interesting. I plan to come back to this note in the future to jog my memory, and in no way is this comprehensive.  
 
 ## Chapter 1 - Reliable, Scalable, Maintainable Applications
 
@@ -222,5 +222,140 @@ Fact tables might have 100 columns, or sometimes several hundred. Meaning they a
 - Data warehouses are not used by end users. Disk bandwidth is often the bottleneck here. 
 - OLTP: log structured school, append to files and deleting obsolute files. LSM-Tree
 - OLTP: Update in place, B-trees, used in a major portion of relational databases
+
+
+## Chapter 4 - Encoding and Evolution
+
+#### Formats for encoding data
+
+Programs work with data in two different representations: 
+1. In memory
+2. Writing data to a file or over the network
+
+The translation from the in-memory representation to a byte sequence is called _encoding_ (_serialization_ or _marshalling_), and the reverse is _decoding_.
+
+#### Examples of language-specific formats
+- Java: java.io.Serializable
+- Python: pickle
+- Ruby: Marshal
+
+#### Standardizing Encodings
+
+JSON and XML are standardized encodings which can be written and read by many programming languages. 
+
+#### Binary Encoding
+
+Internally, you could choose a format that is more compact or faster to parse. There are multiple types of binary encodings for JSON (MessagePack, BSON, BJSON, UBJSON, BISON, etc). 
+
+#### Thrift and Protocol Buffers
+
+Apache Thrift (Facebook) and Protocol Buffers (protobuf - Google) are binary encoding libraries. 
+
+Both require a schema for any data that is encoded. For Thrift, you use a Thrift interface definition language. Each come with a code generation tool that can produce classes that implement the schema in various programming languages. Your application code can call this generated code to encode or decode records.
+
+Example: Thrift has two different binary encoding formats (BinaryProtocol and CompactProtocol). Something of interest, the encoded record does not store the key names (field names) - but instead has _field tags_. 
+
+### Notes
+
+One common note about all of the binary encoding libraries is the complexity of schema evolution (memory size changes, required field changes, _field tags_, etc). 
+
+An interesting note about the code generation of Thrift and Protocol buffers: in dynamically typed programming languages (JavaScript, Ruby, Python), there is not much point in generating code since there is no compile-time type checker to satisfy. 
+
+### Mertis of Schemas
+
+Binary encoding format schemas support much more detailed validation rules. 
+
+Some other nice properties of binary encodings:
+- More compact, (omit field names from data)  
+- Schema is required for decoding 
+- Keeping schemas stored allows you to check forward and backward compatibility
+- For statically typed languages, the ability to generate code for type-checking at compile time
+
+## Modes of Dataflow
+
+Data can flow from one process to another in multiple ways: 
+- via databases
+- via service calls (REST, RPC)
+- via async message passing 
+
+### Data Through Databases
+
+_Data outlives code_
+
+This was my favorite bit from this section. Databases will contain _years_ of data. 
+
+### Data Through Services: REST and RPC
+
+Processes that need to communicate over a network are typically organized as a _server_ and _client_. An API exposed by the server is called a _service_. When the _client_ is another server, this can be noted as a _service-oriented architecture_ (SOA), more recently called and rebranded as _microservices_. The goal of _microservices_ is to make the application easier to change.
+
+#### Web services
+
+When HTTP is used as the underlying protocol, the service is known as a _web-service_. There are two common approacheds to web services: REST and SOAP. 
+
+REST is a design philosophy. SOAP is an XML-based protocol, API being WSDL.
+
+#### RPC
+
+The book seems highly critical of RPC. The RPC model tries to make a request to a remote network service lookt he same as calling a function or method in your programming language, within the same process (_location transparency_). 
+
+Fundamentally flawed because it tries to disguise the network request as a local function call. The book argues that there is no point in doing this, and they are fundamentally different things - buffing the appeal to REST. 
+
+RPC however is not going away and is built into frameworks like Thrift. gRPC is an implementation using Protocol Buffers. Some of custom RPC protocols with binary encoding format achieve better performance than something generic like JSON or REST. The book argues REST API's are better because: easier to experiement and debug, all main-stream programming languages and platforms are supported, and there is a vast ecosystem (servers, caches, load balancers, proxies, firewalls, monitoring, debugging, tools, etc). 
+
+### Message-Passing Dataflow
+
+A message queue is somewhere between RPC and databases. A message broker has several advantages over direct RPC:
+- Acts as a buffer
+- Automatically re-deliver messages, preventing loss of data
+- Sender doesnt need to know IP address or port number of recipient
+- Allows one message to be sent to several recipients
+- Decouples sender from the recipient 
+
+A sender doesnt expect a response, its usually one-way and doesnt wait for the message to be delivered. 
+
+#### Message Brokers
+
+One process sends a message to a named _queue_ or _topic_. The broker ensures that the message is delivered to one or more _consumers_ or _subscribers_. A topic provides one-way dataflow. Message brokers dont enforce any particular data model. 
+
+Past frameworks: TIBCO, IMB WebSphere, webMethods
+Recent frameworks: RabbitMQ, ActiveMQ, HornetQ, NATS, Apache Kafka
+
+
+Not sure why SQS was not mentioned... 
+
+#### Distributed actor frameworks
+
+The _actor model_ is programming model for _concurrency_ in a _single process_. This side-skirts dealing with threads. Logic is encapsulated in _actors_. An actor might have local state, and represents one client or entity. Actors communicate to each other by sending and receiving async messages. Each actor only processes one message at a time.
+
+A _distributed actor framework_ essentially integrates a message broker and actor programming method into a signle framework. Although, nodes must be running the same version. 
+
+Examples: 
+- Akka 
+- Orleans
+- Erlang OTP
+
+## Summary of Chapter 4
+
+Discussed how to turn data structures into bytes on the network or disk. Many services need to support rolling upgrades, released without downtime.
+
+In regards to data encoding formats: 
+- Language-specific encodings are restricted to a single language and often provide no foward or backward compatability 
+- Textual formats (JSON, XML, and CSV) are common, somewhat vague about data types
+- Binary schema-driven formats allow compact, efficient encoding. Data needs to be decoded before it is human readable 
+
+Dataflow: 
+- Databases: process handles encoding and decoding 
+- RPC/REST: client encodes request, server decodes, server encodes response, client decodes response
+- Async messages: nodes communicate with encoded messages, recipient decodes
+
+Applications evolution should be rapid and deployments frequent. 
+
+## Conclusion of Part 1
+
+The subjects I learned most on after reading part one were the discussions on the storage mechanisms such as indexes, B-trees, log files, RPC + binary schema driven encoding. 
+
+I also like how the book was a bit opiniated and open about what is popular, and what might be considered "bad". After working with Thrift a tiny-bit I did feel the pain of updating and generating new code. Although, I am sure there are tradeoffs -- it always felt a bit _slow_ or too involved for minimal benefit. That is purely looking at it from the developer experience side, and not the latency side of things.
+
+I have some more homework on those topics I mentioned above. I definitely understand there is an entire field dedicated to these things, and I cant purely learn it from this book. Anyways, I enjoyed part 1! 
 
 ## ...to be continued (I update this note after reading a chapter at a time)
