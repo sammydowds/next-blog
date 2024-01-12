@@ -9,7 +9,7 @@ labels: "data"
 
 I started reading [this book](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321) after being laid off. A lot of people online recommended it, and I figured it would be great to dive into something more technical while job hunting. 
 
-NOTE: this is not meant to be a "structure blog post", but rather small summaries or notes on things I found interesting. I plan to come back to this note in the future to jog my memory, and in no way is this comprehensive.  
+NOTE: this is not meant to be a "structured blog post", but rather small summaries or notes on things I found interesting. I plan to come back to this note in the future to jog my memory, and in no way is this comprehensive.  
 
 ## Chapter 1 - Reliable, Scalable, Maintainable Applications
 
@@ -358,4 +358,4 @@ I also like how the book was a bit opiniated and open about what is popular, and
 
 I have some more homework on those topics I mentioned above. I definitely understand there is an entire field dedicated to these things, and I cant purely learn it from this book. Anyways, I enjoyed part 1! 
 
-## ...to be continued (I update this note after reading a chapter at a time)
+On to part 2!
