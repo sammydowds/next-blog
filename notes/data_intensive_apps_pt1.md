@@ -174,4 +174,53 @@ Each page is identified using an address or location. One page can refer to anot
 
 One page is designed as the _root_ of the B-tree. The page contains keys and references to child pages. Eventually you get to a leaf page, containing values.  
 
+The number of references to a child pages in one page of the B-tree is called the _branching factor_. 
+
+#### Updating a B-Tree
+
+Updating a _value_, find the leaf page containing that key, change the value, write the page back to disk. Adding a new key, you need to find the page whose key range encompasses the new key. If there is not enough memory, you split that page. Then, update the references of the parent page. This ensures the tree is _balanced_. 
+
+A B-Tree with _n_ keys always has depth of _O_(log _n_). Most databases are three or four levels deep (4KB pages with branching factor of 500 store up to 256TB)
+
+#### Resilience
+
+B-Trees rely on overwriting a page on disk. This is different from log-structured indexes, which only append to files but never modify in place. 
+
+B-tree implementations include an additonial data structure, _write-ahead log_ (WAL), which is an append-only file to which every B-tree modification is written. 
+
+#### Optimizations
+
+- Instead of maintaining a WAL, a modified page is written to a different location
+- Shorten the keys (abbreviating enough to still have boundary between keys), improving branch factor
+- Lay out the tree so that leaf pages appear in sequential order on disk
+- Storing sibling page references on a leaf page (no need to go back to the parent)
+
+## Comparing B-Trees and LSM-Trees
+
+A rule of thumb: B-trees are thought to be faster for reads, while LSM-trees are typically faster for writes. 
+
+## Transaction Processing or Analytics?
+
+Online Transaction Processing (OLTP) vs Online Analytic Processing (OLAP)
+
+OLTP - application looks up small number of records by some key, using an index 
+OLAP - scan over a huge number of records, only reading a few columns per record, and calculates aggregate statistics vs returning raw data
+
+Introducing the need for a data warehouse.
+
+### Stars and Snowflakes: Schemas for Analytics
+
+In the star schema, a _fact table_ contains rows which represent an event that occurred at a particular time.
+
+Columns in the fact table could be attributes (price) or _dimensions_. Dimensions are foreign keys to other tables (SKU, brand name, package size, etc). _Star schema_ gets its name because you can visualize the _fact table_ as being in the middle surrounded by dimensions tables and the connections acting as rays of a star. A _snowflake schema_ is similar - but the _dimensions_ might contain _sub-dimensions_. 
+
+Fact tables might have 100 columns, or sometimes several hundred. Meaning they are very wide, including the dimensions. 
+
+## Summary of Chapter 3
+
+- OLTP systems are user-facing typically. Disk seek time is the bottleneck. 
+- Data warehouses are not used by end users. Disk bandwidth is often the bottleneck here. 
+- OLTP: log structured school, append to files and deleting obsolute files. LSM-Tree
+- OLTP: Update in place, B-trees, used in a major portion of relational databases
+
 ## ...to be continued (I update this note after reading a chapter at a time)
