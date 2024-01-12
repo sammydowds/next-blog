@@ -354,7 +354,7 @@ Applications evolution should be rapid and deployments frequent.
 
 The subjects I learned most on after reading part one were the discussions on the storage mechanisms such as indexes, B-trees, log files, RPC + binary schema driven encoding. 
 
-I also like how the book was a bit opiniated and open about what is popular, and what might be considered "bad". After working with Thrift a tiny-bit I did feel the pain of updating and generating new code. Although, I am sure there are tradeoffs -- it always felt a bit _slow_ or too involved for minimal benefit. That is purely looking at it from the developer experience side, and not the latency side of things.
+I also like how the book was a bit opiniated and open about what is popular, and what might be considered "bad". After working with Thrift a tiny-bit I did feel the pain of updating and generating new code. Although, I am sure there are tradeoffs -- it always felt a bit _slow_ or too involved for minimal benefit. That is purely looking at it from the developer experience side, and not the latency side of things. It seems like RPC is a go-to for internal server to server communication. I am still skeptical about RPC being used as "state transfer" (maybe that should be just designed into a REST endpoint with varying methods to update the data), but that is probably naive and I look forward to discussing those tradeoffs in the future. 
 
 I have some more homework on those topics I mentioned above. I definitely understand there is an entire field dedicated to these things, and I cant purely learn it from this book. Anyways, I enjoyed part 1! 
 
