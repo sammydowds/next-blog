@@ -4,7 +4,7 @@ import { IoIosStar } from "react-icons/io";
 export const HighlightedPost = () => {
   return (
     <Card w="100%">
-      <CardBody p="10px">
+      <CardBody p="14px">
         <Flex
           alignItems="center"
           fontSize={{ lg: "14px", base: "12px" }}
@@ -13,10 +13,9 @@ export const HighlightedPost = () => {
         >
           <Flex alignItems="center" gap="5px">
             <IoIosStar color="gold" size="24px" />
-            Check out one of my best blog posts
+            Featured Post: Business planning platform 
           </Flex>
           <Link
-            mr="10px"
             isExternal
             href="https://www.sd3.dev/notes/business_planning"
             color="blue"

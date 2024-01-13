@@ -34,10 +34,10 @@ export default function Home() {
               <Heading>Hi, I am Sammy!</Heading>
               <HighlightedPost />
               <Card>
-                <CardHeader p="10px" fontSize="14px" fontWeight="bold">
+                <CardHeader p="16px" fontSize="14px" fontWeight="bold">
                   About Me
                 </CardHeader>
-                <CardBody p="10px">
+                <CardBody p="14px">
                   <Text fontSize="14px">
                     I am an experienced full stack engineer working evenly on
                     both sides of the stack. Most recently, I worked for{" "}
