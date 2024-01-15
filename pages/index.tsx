@@ -32,7 +32,9 @@ export default function Home() {
           <Box>
             <VStack align="start" gap="20px" mb="100px">
               <Heading>Hi, I am Sammy!</Heading>
-              <Heading size="md" as="h2">Welcome to my engineering blog.</Heading>
+              <Heading size="md" as="h2">
+                Welcome to my engineering blog.
+              </Heading>
               <HighlightedPost />
               <Card>
                 <CardHeader p="16px" fontSize="14px" fontWeight="bold">

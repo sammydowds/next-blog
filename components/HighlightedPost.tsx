@@ -13,7 +13,7 @@ export const HighlightedPost = () => {
         >
           <Flex alignItems="center" gap="5px">
             <IoIosStar color="gold" size="24px" />
-            Featured Post: Business planning platform 
+            Featured Post: Business planning platform
           </Flex>
           <Link
             isExternal
