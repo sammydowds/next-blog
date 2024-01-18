@@ -1,7 +1,10 @@
-import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react";
+import { cardTheme } from "./theming/Card";
 
-const config: ThemeConfig = {};
-
-const theme = extendTheme({ config });
+const theme = extendTheme({ 
+  components: {
+    Card: cardTheme 
+  }
+});
 
 export default theme;
