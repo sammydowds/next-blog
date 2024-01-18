@@ -1,16 +1,15 @@
-import { cardAnatomy } from '@chakra-ui/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { cardAnatomy } from "@chakra-ui/anatomy";
+import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
 
 const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(cardAnatomy.keys)
+  createMultiStyleConfigHelpers(cardAnatomy.keys);
 
 const baseStyle = definePartsStyle({
   container: {
-    borderRadius: '3px',
+    borderRadius: "3px",
   },
-})
+});
 
-const sizes = {
-}
+const sizes = {};
 
-export const cardTheme = defineMultiStyleConfig({ baseStyle, sizes })
+export const cardTheme = defineMultiStyleConfig({ baseStyle, sizes });
