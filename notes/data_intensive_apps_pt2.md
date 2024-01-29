@@ -101,3 +101,23 @@ If a node goes down in a leaderless architecture, writes could be missed and whe
 There are a couple of ways of keeping data in sync: 
 - _read repair_: client can detect stale responses, and then the client writes the new value back to the stale replica
 - _Anti-entropy process_: background process looks for differences in the data, and copies from one replica to another
+
+
+## Transactions
+
+Transactions can help reduce the amount of potential error cases you need to think about. Processes crashing, network interrupts, power outages, disk full, unexpected concurrency can all make data become incosistent in various ways.  
+
+
+## The Trouble with Distributed Systems
+
+Partial failures are non-deterministic. Unlike, hardware (computers) - which are either broken or not.
+
+**Shared-nothing systems** have become the dominant way of building systems. These are systems which share no hardware, but can make requests to each other. High reliability can be achieved through redundancy.
+
+Some example of partial failures: 
+- Packet is lost over the network or delayed
+- Node's clock is out of sync
+- A process may pause, be declared dead, then come back to life
+
+A **Byzantine fault** is any fault presenting different symptoms to different observers. Distributed Systems require consensus among their distributed nodes.  
+
